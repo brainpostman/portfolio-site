@@ -1,0 +1,38 @@
+.img {
+    &_wrapper {
+        position: relative;
+    }
+    &_image {
+        padding: 5px;
+    }
+}
+
+.borders {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.border {
+    position: absolute;
+    height: 25%;
+    width: 25%;
+    $border: 3px solid $light;
+    &_left {
+        left: 0;
+        border-left: $border;
+    }
+    &_right {
+        right: 0;
+        border-right: $border;
+    }
+    &_up {
+        top: 0;
+        border-top: $border;
+    }
+
+    &_down {
+        bottom: 0;
+        border-bottom: $border;
+    }
+}
