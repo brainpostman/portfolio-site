@@ -4,6 +4,7 @@
     margin: 0;
     border: 0;
     color: $lightest;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -99,7 +100,6 @@ body {
     flex-direction: column;
     background-color: $bg;
     overflow-x: hidden;
-
     height: 100vh;
     height: 100svh;
     position: relative;
@@ -165,7 +165,7 @@ body {
     }
 }
 
-.magenta {  
+.magenta {
     aspect-ratio: 1 / 1;
     width: 30vw;
     background-color: $magenta;
@@ -274,21 +274,23 @@ body {
 //layout
 .wrapper {
     min-height: 100%;
+    width: 100vw;
     flex: 1 0 auto;
 }
 
 .frame {
+    z-index: -1;
     align-self: center;
     position: fixed;
-    max-width: $max-width;
-    width: min(90vw, $max-width);
+    padding: 0 20px;
+    width: 85vw;
     height: 100vh;
 }
 
 .border {
     position: absolute;
-    aspect-ratio: 2 / 1;
-    width: 10vw;
+    aspect-ratio: 1 / 1;
+    width: 5vw;
     $border: 3px solid $light;
     @media (max-aspect-ratio: 0.999) {
         aspect-ratio: 1 / 2;
@@ -307,7 +309,16 @@ body {
     }
 
     &_down {
-        bottom: 7.55vh;
+        bottom: 7.5vh;
         border-bottom: $border;
     }
 }
+
+.hl_darkest {
+    color: $darkest;
+}
+
+.hl_dark {
+    color: $dark;
+}
+

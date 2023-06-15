@@ -1,0 +1,303 @@
+.welcome {
+    height: 100svh;
+    width: 100vw;
+    padding: 0 20px;
+}
+
+.wrapper {
+    max-width: $max-width;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 40px 0 0 0;
+    height: 100%;
+}
+
+.img {
+    &_container {
+        position: relative;
+        height: 210px;
+        width: 210px;
+    }
+    &_image {
+        width: 250px;
+        object-fit: cover;
+    }
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 24px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    &_me:last-of-type {
+        color: $darkest;
+    }
+    &_description {
+        flex: 1 0 auto;
+        font-size: 24px;
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    &_stack {
+        font-size: 16px;
+    }
+    &_divider {
+        align-self: center;
+        height: 3px;
+        width: 100%;
+        background-color: $light;
+    }
+}
+
+.navigation {
+    position: relative;
+    &_list {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        & li {
+            display: flex;
+            align-items: center;
+            vertical-align: middle;
+            font-size: 20px;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            & svg {
+                transition: all 0.2s ease;
+            }
+            &:hover {
+                
+                transition: all 0.4s ease;
+                transform: scale(1.2);
+                text-shadow: 2px 2px 20px $bg, -2px -2px 20px $bg;
+                & svg {
+                    filter: drop-shadow(2px 2px 20px $bg) drop-shadow(-2px -2px 20px $bg);
+                    transition: all 0.4s ease;
+                }
+            }
+        }
+    }
+    &_boundary {
+        position: absolute;
+        top: 0;
+        height: 1px;
+        width: 100%;
+    }
+}
+
+.separator {
+    align-self: center;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 3px;
+        background-color: $light;
+        left: 6px;
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        width: 15px;
+        height: 3px;
+        background-color: $light;
+        top: 6px;
+        left: 0;
+    }
+}
+
+.icons {
+    width: 24px;
+    height: 24px;
+}
+
+.navbar {
+    position: fixed;
+    top: calc(50vh - 161px);
+    right: calc(3.75vw - 20px);
+    &_list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        top: -50vh;
+        & li {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            & svg {
+                transition: all 0.2s ease;
+            }
+            &:hover {
+                transition: all 0.4s ease;
+                transform: scale(1.4);
+                & svg {
+                    filter: drop-shadow(2px 2px 20px $light) drop-shadow(-2px -2px 20px $light);
+                    transition: all 0.4s ease;
+                }
+            }
+        }
+    }
+    & .icons {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.transitionLeft {
+    $transition: all 0.5s 0.15s;
+    &_enter {
+        opacity: 0;
+        transform: translateX(-10vw);
+        filter: blur(20px);
+    }
+    &_enterActive {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0px);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(-10vw);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(-10vw);
+    }
+}
+
+.transitionRight {
+    $transition: all 0.5s 0.3s;
+    &_enter {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(10vw);
+    }
+    &_enterActive {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateY(-10vh);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateY(-10vh);
+    }
+}
+
+.transitionTop {
+    $transition: all 0.5s;
+    &_enter {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateY(-10vh);
+    }
+    &_enterActive {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateY(-10vh);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateY(-10vh);
+    }
+}
+
+.transitionBar {
+    $transition: all 0.2s;
+    &_enter {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(10vw);
+    }
+    &_enterActive {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(10vw);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(10vw);
+    }
+}

@@ -1,0 +1,176 @@
+.frame {
+    z-index: -1;
+    align-self: center;
+    position: fixed;
+    width: 85vw;
+    height: 100vh;
+}
+
+.border {
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    width: 5vw;
+    $border: 3px solid $light;
+    @media (max-aspect-ratio: 0.999) {
+        aspect-ratio: 1 / 2;
+    }
+    &_left {
+        left: 0;
+        border-left: $border;
+    }
+    &_right {
+        right: 0;
+        border-right: $border;
+    }
+    &_up {
+        top: 7.5vh;
+        border-top: $border;
+    }
+
+    &_down {
+        bottom: 7.5vh;
+        border-bottom: $border;
+    }
+}
+
+$transition: all 0.4s;
+
+.transitionTopLeft {
+    &_enter {
+        opacity: 0;
+        transform: translate3d(-10vh, -10vh, 0);
+        filter: blur(20px);
+    }
+    &_enterActive {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        filter: blur(0px);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translate3d(-10vh, -10vh, 0);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translate3d(-10vh, -10vh, 0);
+    }
+}
+
+.transitionTopRight {
+    &_enter {
+        opacity: 0;
+        transform: translate3d(10vh, -10vh, 0);
+        filter: blur(20px);
+    }
+    &_enterActive {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        filter: blur(0px);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translate3d(10vh, -10vh, 0);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translate3d(10vh, -10vh, 0);
+    }
+}
+
+.transitionBottomLeft {
+    &_enter {
+        opacity: 0;
+        transform: translate3d(-10vh, 10vh, 0);
+        filter: blur(20px);
+    }
+    &_enterActive {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        filter: blur(0px);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translate3d(-10vh, 10vh, 0);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translate3d(-10vh, 10vh, 0);
+    }
+}
+
+.transitionBottomRight {
+    &_enter {
+        opacity: 0;
+        transform: translate3d(10vh, 10vh, 0);
+        filter: blur(20px);
+    }
+    &_enterActive {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        filter: blur(0px);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate3d(0, 0, 0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translate3d(10vh, 10vh, 0);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translate3d(10vh, 10vh, 0);
+    }
+}
