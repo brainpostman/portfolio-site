@@ -4,6 +4,7 @@ import styles from './Welcome.module.scss';
 import { BsArrowUpCircle, BsPersonCircle, BsTelephoneInbound, BsCodeSlash } from 'react-icons/bs';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group-react-18';
+import TextHoverFrame from '@/components/TextHoverFrame.tsx/TextHoverFrame';
 
 const transitionStylesPerson = {
     enter: styles.transitionLeft_enter,
@@ -161,16 +162,27 @@ const Welcome = () => {
                         <nav ref={navMainRef} className={styles.navigation}>
                             <ul className={styles.navigation_list}>
                                 <li onClick={() => scrollToBlock('projects')}>
-                                    Проекты <BsCodeSlash className={styles.icons} />
+                                    <TextHoverFrame>
+                                        <span>
+                                            Проекты <BsCodeSlash className={styles.icons} />
+                                        </span>
+                                    </TextHoverFrame>
                                 </li>
                                 <span className={styles.separator} />
                                 <li onClick={() => scrollToBlock('about')}>
-                                    О себе <BsPersonCircle className={styles.icons} />
+                                    <TextHoverFrame>
+                                        <span>
+                                            О себе <BsPersonCircle className={styles.icons} />
+                                        </span>
+                                    </TextHoverFrame>
                                 </li>
                                 <span className={styles.separator} />
                                 <li onClick={() => scrollToBlock('contacts')}>
-                                    Контакты
-                                    <BsTelephoneInbound className={styles.icons} />
+                                    <TextHoverFrame>
+                                        <span>
+                                            Контакты <BsTelephoneInbound className={styles.icons} />
+                                        </span>
+                                    </TextHoverFrame>
                                 </li>
                             </ul>
                             <div ref={scrollTrigger} className={styles.navigation_boundary}></div>
@@ -188,19 +200,27 @@ const Welcome = () => {
                 <nav ref={navBarRef} className={styles.navbar}>
                     <ul className={styles.navbar_list}>
                         <li onClick={scrollToTop} title={'К началу'}>
-                            <BsArrowUpCircle className={styles.icons} />
+                            <TextHoverFrame>
+                                <BsArrowUpCircle className={styles.icons} />
+                            </TextHoverFrame>
                         </li>
                         <span className={styles.separator} />
                         <li onClick={() => scrollToBlock('projects')} title={'Проекты'}>
-                            <BsCodeSlash className={styles.icons} />
+                            <TextHoverFrame>
+                                <BsCodeSlash className={styles.icons} />
+                            </TextHoverFrame>
                         </li>
                         <span className={styles.separator} />
                         <li onClick={() => scrollToBlock('about')} title={'О себе'}>
-                            <BsPersonCircle className={styles.icons} />
+                            <TextHoverFrame>
+                                <BsPersonCircle className={styles.icons} />{' '}
+                            </TextHoverFrame>
                         </li>
                         <span className={styles.separator} />
                         <li onClick={() => scrollToBlock('contacts')} title={'Контакты'}>
-                            <BsTelephoneInbound className={styles.icons} />
+                            <TextHoverFrame>
+                                <BsTelephoneInbound className={styles.icons} />{' '}
+                            </TextHoverFrame>
                         </li>
                     </ul>
                 </nav>

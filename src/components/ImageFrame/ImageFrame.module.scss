@@ -1,6 +1,43 @@
 .img {
     &_wrapper {
         position: relative;
+        &_hover {
+            cursor: pointer;
+            &:hover {
+                & .border {
+                    transition: transform 0.4s ease;
+                    &_topLeft {
+                        transform: translate3d(-7px, -7px, 0);
+                    }
+                    &_topRight {
+                        transform: translate3d(7px, -7px, 0);
+                    }
+                    &_bottomLeft {
+                        transform: translate3d(-7px, 7px, 0);
+                    }
+                    &_bottomRight {
+                        transform: translate3d(7px, 7px, 0);
+                    }
+                }
+            }
+            &:active {
+                & .border {
+                    transition: transform 0.4s ease;
+                    &_topLeft {
+                        transform: translate3d(-2px, -2px, 0);
+                    }
+                    &_topRight {
+                        transform: translate3d(2px, -2px, 0);
+                    }
+                    &_bottomLeft {
+                        transform: translate3d(-2px, 2px, 0);
+                    }
+                    &_bottomRight {
+                        transform: translate3d(2px, 2px, 0);
+                    }
+                }
+            }
+        }
     }
     &_image {
         padding: 5px;
@@ -18,21 +55,29 @@
     height: 25%;
     width: 25%;
     $border: 3px solid $light;
-    &_left {
+    transition: transform 0.2s ease;
+    &_topLeft {
         left: 0;
-        border-left: $border;
-    }
-    &_right {
-        right: 0;
-        border-right: $border;
-    }
-    &_up {
         top: 0;
         border-top: $border;
+        border-left: $border;
     }
-
-    &_down {
+    &_topRight {
+        right: 0;
+        top: 0;
+        border-top: $border;
+        border-right: $border;
+    }
+    &_bottomLeft {
+        left: 0;
         bottom: 0;
         border-bottom: $border;
+        border-left: $border;
+    }
+    &_bottomRight {
+        right: 0;
+        bottom: 0;
+        border-bottom: $border;
+        border-right: $border;
     }
 }
