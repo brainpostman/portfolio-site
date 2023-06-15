@@ -1,10 +1,12 @@
 .projects {
     height: 100vh;
+    height: 100svh;
+    width: 100vw;
     padding: 0 20px;
 }
 
 .wrapper {
-    max-width: 1200px;
+    max-width: $max-width;
     display: flex;
     justify-content: space-evenly;
     margin: 0 auto;
