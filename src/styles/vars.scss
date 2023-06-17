@@ -2,19 +2,45 @@
 $bg: #090211;
 $magenta: #40128b;
 $pink: #fdcedf;
-$lilac: #b8c7fd;
+$lilac: #91a9ff;
 $gold: #949494;
-$lightest: #FDF4F5;
-$light: #E8A0BF;
-$dark: #BA90C6;
-$darkest: #C0DBEA;
+$lightest: #fdf4f5;
+$light: #e8a0bf;
+$dark: #ba90c6;
+$darkest: #c0dbea;
+
+.hl_darkest {
+    color: $darkest;
+}
+
+.hl_dark {
+    color: $dark;
+}
+
+.hl_light {
+    color: $light;
+}
+
+.hl_lighest {
+    color: $lightest;
+}
 
 //size
 
-$max-width: min(1368px, 75vw);
+$max-width: min(1368px, 85%);
+
+//mixins
 
 @mixin center-content {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin wrapper {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: calc(7.5vh + 20px) 20px;
+    height: 100%;
 }

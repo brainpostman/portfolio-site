@@ -1,10 +1,11 @@
 'use client';
-import ImageFramed from '@/components/ImageFrame/ImageFrame';
+import ImageFramed from '@/components/Layout/ImageFrame/ImageFrame';
 import styles from './Welcome.module.scss';
 import { BsArrowUpCircle, BsPersonCircle, BsTelephoneInbound, BsCodeSlash } from 'react-icons/bs';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group-react-18';
-import TextHoverFrame from '@/components/TextHoverFrame.tsx/TextHoverFrame';
+import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
+import SideNavBar from '@/components/UI/SideNavBar/SideNavBar';
 
 const transitionStylesPerson = {
     enter: styles.transitionLeft_enter,
@@ -22,14 +23,6 @@ let transitionStylesNavMain = {
     exitActive: styles.transitionRight_exitActive,
     exitDone: styles.transitionRight_exitDone,
 };
-const transitionStylesNavBar = {
-    enter: styles.transitionBar_enter,
-    enterActive: styles.transitionBar_enterActive,
-    enterDone: styles.transitionBar_enterDone,
-    exit: styles.transitionBar_exit,
-    exitActive: styles.transitionBar_exitActive,
-    exitDone: styles.transitionBar_exitDone,
-};
 
 const Welcome = () => {
     const [navBarToggle, setNavBarToggle] = useState(false);
@@ -40,16 +33,9 @@ const Welcome = () => {
     const observer = useRef<IntersectionObserver>();
     const titleRef = useRef<HTMLDivElement>(null);
     const navMainRef = useRef<HTMLElement>(null);
-    const navBarRef = useRef<HTMLElement>(null);
+
     const timeoutRef = useRef<number>(-1);
     let navDelay = 800;
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
 
     const scrollToBlock = (id: string) => {
         const el = document.getElementById(id);
@@ -190,41 +176,7 @@ const Welcome = () => {
                     </CSSTransition>
                 </header>
             </div>
-            <CSSTransition
-                in={navBarToggle && !scroll}
-                timeout={200}
-                classNames={transitionStylesNavBar}
-                mountOnEnter
-                unmountOnExit
-                nodeRef={navBarRef}>
-                <nav ref={navBarRef} className={styles.navbar}>
-                    <ul className={styles.navbar_list}>
-                        <li onClick={scrollToTop} title={'К началу'}>
-                            <TextHoverFrame>
-                                <BsArrowUpCircle className={styles.icons} />
-                            </TextHoverFrame>
-                        </li>
-                        <span className={styles.separator} />
-                        <li onClick={() => scrollToBlock('projects')} title={'Проекты'}>
-                            <TextHoverFrame>
-                                <BsCodeSlash className={styles.icons} />
-                            </TextHoverFrame>
-                        </li>
-                        <span className={styles.separator} />
-                        <li onClick={() => scrollToBlock('about')} title={'О себе'}>
-                            <TextHoverFrame>
-                                <BsPersonCircle className={styles.icons} />{' '}
-                            </TextHoverFrame>
-                        </li>
-                        <span className={styles.separator} />
-                        <li onClick={() => scrollToBlock('contacts')} title={'Контакты'}>
-                            <TextHoverFrame>
-                                <BsTelephoneInbound className={styles.icons} />{' '}
-                            </TextHoverFrame>
-                        </li>
-                    </ul>
-                </nav>
-            </CSSTransition>
+            <SideNavBar inCSSBoolean={navBarToggle && !scroll} />
         </section>
     );
 };

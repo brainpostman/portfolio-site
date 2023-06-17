@@ -1,4 +1,4 @@
-import PageFrame from '@/components/PageFrame/PageFrame';
+import PageFrame from '@/components/Layout/PageFrame/PageFrame';
 import '../styles/globals.scss';
 import { Comfortaa } from 'next/font/google';
 
@@ -25,7 +25,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <PageFrame />
                 <svg>
                     <filter id='noiseFilter'>
-                        <feTurbulence type='turbulence' baseFrequency='0.4' stitchTiles='stitch' />
+                        <feTurbulence
+                            type='fractalNoise'
+                            baseFrequency='0.6'
+                            stitchTiles='stitch'
+                        />
                         <feComposite operator='in' in2='SourceGraphic' result='monoNoise' />
                         <feBlend in='SourceGraphic' in2='monoNoise' mode='screen' />
                     </filter>
