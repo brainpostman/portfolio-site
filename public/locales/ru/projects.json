@@ -1,0 +1,90 @@
+{
+    "projects": [
+        {
+            "img": "/projects/movie-website.png",
+            "name": "Сайт проката фильмов",
+            "short-descr": "Mock-up сайта проката фильмов с функционалом: поиска по БД, роутинга по страницам фильмов и актёров, регистрации, перевода, отзывов и комментариев, администрирования",
+            "descr": "Сайт спроектирован как часть командного задания во время прохождения стажировки в компании Hotels.ru. ТЗ подразумевало взять любой из существующих сайтов по прокату фильмов в качестве макета и спроектировать mock-up сайта с урезанным функционалом: поиск фильмов с сортировкой и фильтрами, роутинг по отдельным страницам найденных фильмов и их актёров, страница администрирования с элементами CRUD, страница отзывов и комментариев к отзывам каждого фильма. Над проектом работали две команды: фронтэнд- и бэкэнд-стажёры. Фронтэнд был спроектирован на основе фреймворков Next JS и React JS с использованием языка TypeScript. Взаимодействие с бэкэнд-сервером происходило посредством запросов на REST API.\n Мой вклад в работу - страница администрирования каталогом фильмов, страница отзывов и комментариев, ряд UI элементов (каруселей, переключателей и кнопок), в целом рефакторинг и доработка кода товарищей по команде (взаимный), функционал регистрации и авторизации через OAuth Google и VK, а также через БД бэкэнда, локализация сайта на английский язык. Вёрстка сайта адаптивная.",
+            "host-link": "https://ivi-ruby.vercel.app/",
+            "repo-link": "https://github.com/Hapnees/ivi",
+            "proglangs": "JavaScript, TypeScript",
+            "frameworks": "React JS, Next JS",
+            "libraries": "Axios, Redux TK, i18next, NextAuth",
+            "other-tech": "HTML, SCSS"
+        },
+        {
+            "img": "/projects/sultan.png",
+            "name": "Магазин косметики «Султан»",
+            "short-descr": "Сайт магазина по продаже косметики с функционалом: каталога товаров с сортировкой и фильтрацией по типам, производителям и т.п., роутингом по страницам отдельных товаров, добавлением товаров в корзину и управление ей, мини-админкой CRUD для управления каталогом",
+            "descr": "Одно из личных заданий в рамках стажировки Hotels.ru. Согласно ТЗ необходимо было спроектировать ряд страниц вебсайта по данному шаблону (в Figma). Это: страница каталога с возможностью сортировки товаров, фильтрации по типам ухода, производителям, цене; страница корзины с возможность добавления товаров и управлением её содержимым, как из самой корзины, каталога и страницы самих товаров. Каждая карточка товара ведёт на соответствующую страницу товара с подгруженной информацией. Также сделана страница мини-админки с CRUD-функционалом. Как мок бэкэнда информация о товарах хранится в localStorage. Вёрстка адаптивная.",
+            "host-link": "https://brainpostman.github.io/sultan-react-ts",
+            "repo-link": "https://github.com/brainpostman/sultan-react-ts",
+            "proglangs": "JavaScript, TypeScript",
+            "frameworks": "React JS",
+            "libraries": "Redux TK",
+            "other-tech": "HTML, SCSS, Figma"
+        }
+    ],
+    "mini-projects": [
+        {
+            "img": "/projects/snake.png",
+            "name": "Змейка",
+            "short-descr": "Змейка на React",
+            "descr": "Захотелось сделать змейку. Сделал змейку :D. Можно настроить размер поля и скорость змейки. Управление стрелочками.",
+            "host-link": "https://brainpostman.github.io/ts-react-snake",
+            "repo-link": "https://github.com/brainpostman/ts-react-snake",
+            "proglangs": "TypeScript",
+            "frameworks": "React JS",
+            "libraries": "Redux TK",
+            "other-tech": "HTML, SCSS"
+        },
+        {
+            "img": "/projects/comment-section.png",
+            "name": "Секция комментариев",
+            "short-descr": "Мокап секции комментариев с датированием, лайками и удалением на нативном JavaScript",
+            "descr": "Мокап секции комментариев с датированием, лайками и удалением на нативном JS",
+            "host-link": "https://brainpostman.github.io/comment-section",
+            "repo-link": "https://github.com/brainpostman/comment-section",
+            "proglangs": "JavaScript",
+            "frameworks": "-",
+            "libraries": "-",
+            "other-tech": "HTML, SCSS"
+        },
+        {
+            "img": "/projects/repo-search.png",
+            "name": "Поиск репозиториев",
+            "short-descr": "Поисковик репозиториев GitHub",
+            "descr": "Поисковик репоизториев GitHub на нативном JavaScript по запросу fetch() на API GitHub",
+            "host-link": "https://brainpostman.github.io/github-repo-search",
+            "repo-link": "https://github.com/brainpostman/github-repo-search",
+            "proglangs": "JavaScript",
+            "frameworks": "-",
+            "libraries": "-",
+            "other-tech": "HTML, SCSS"
+        },
+        {
+            "img": "/projects/elite-fire",
+            "name": "Elite Fire",
+            "short-descr": "Тренировка вёрстки по макету",
+            "descr": "Тренировка вёрстки по макету в рамках стажировки Hotels.ru",
+            "host-link": "https://brainpostman.github.io/sattarov-elite-fire",
+            "repo-link": "https://github.com/brainpostman/sattarov-elite-fire",
+            "proglangs": "-",
+            "frameworks": "-",
+            "libraries": "-",
+            "other-tech": "HTML, SCSS"
+        },
+        {
+            "img": "/projects/conquest",
+            "name": "Conquest",
+            "short-descr": "Тренировка вёрстки по макету",
+            "descr": "Тренировка вёрстки по макету в рамках стажировки Hotels.ru",
+            "host-link": "https://brainpostman.github.io/sattarov-conquest",
+            "repo-link": "https://github.com/brainpostman/sattarov-conquest",
+            "proglangs": "-",
+            "frameworks": "-",
+            "libraries": "-",
+            "other-tech": "HTML, SCSS"
+        }
+    ]
+}
