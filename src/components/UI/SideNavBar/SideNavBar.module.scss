@@ -1,12 +1,12 @@
 .navbar {
     position: fixed;
     top: calc(50vh - 160.5px);
-    right: calc(3.75vw - 20px);
+    right: calc(3.75vw + 15px);
     &_list {
+        position: absolute;
         display: flex;
         flex-direction: column;
         gap: 24px;
-        top: -50vh;
         & li {
             cursor: pointer;
             transition: all 0.2s ease;

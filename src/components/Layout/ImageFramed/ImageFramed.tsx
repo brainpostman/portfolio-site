@@ -1,5 +1,6 @@
+'use client';
 import Image, { ImageProps } from 'next/image';
-import styles from './ImageFrame.module.scss';
+import styles from './ImageFramed.module.scss';
 
 interface ImageFrameProps extends ImageProps {
     link?: boolean;

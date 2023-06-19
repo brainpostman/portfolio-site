@@ -28,6 +28,7 @@ $darkest: #c0dbea;
 //size
 
 $max-width: min(1368px, 85%);
+$frame-margin: 7.5vh;
 
 //mixins
 
@@ -41,6 +42,6 @@ $max-width: min(1368px, 85%);
     max-width: $max-width;
     width: 100%;
     margin: 0 auto;
-    padding: calc(7.5vh + 20px) 20px;
+    padding: calc($frame-margin + 20px) 20px;
     height: 100%;
 }

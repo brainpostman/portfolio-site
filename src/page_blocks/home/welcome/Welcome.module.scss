@@ -16,7 +16,6 @@
         width: 210px;
     }
     &_image {
-        width: 250px;
         object-fit: cover;
     }
 }
@@ -49,6 +48,9 @@
         height: 3px;
         width: 100%;
         background-color: $light;
+    }
+    &_me {
+        font-weight: 700;
     }
 }
 

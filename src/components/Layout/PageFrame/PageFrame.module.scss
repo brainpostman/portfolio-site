@@ -23,12 +23,12 @@
         border-right: $border;
     }
     &_up {
-        top: 7.5vh;
+        top: $frame-margin;
         border-top: $border;
     }
 
     &_down {
-        bottom: 7.5vh;
+        bottom: $frame-margin;
         border-bottom: $border;
     }
 }

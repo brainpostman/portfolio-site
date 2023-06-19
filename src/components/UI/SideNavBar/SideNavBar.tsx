@@ -1,3 +1,4 @@
+'use client';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import { BsArrowUpCircle, BsCodeSlash, BsPersonCircle, BsTelephoneInbound } from 'react-icons/bs';
 import { CSSTransition } from 'react-transition-group-react-18';

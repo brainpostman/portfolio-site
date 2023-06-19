@@ -1,7 +1,7 @@
 'use client';
-import ImageFramed from '@/components/Layout/ImageFrame/ImageFrame';
+import ImageFramed from '@/components/Layout/ImageFramed/ImageFramed';
 import styles from './Welcome.module.scss';
-import { BsArrowUpCircle, BsPersonCircle, BsTelephoneInbound, BsCodeSlash } from 'react-icons/bs';
+import { BsPersonCircle, BsTelephoneInbound, BsCodeSlash } from 'react-icons/bs';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group-react-18';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
