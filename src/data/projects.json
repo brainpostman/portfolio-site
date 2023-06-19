@@ -10,7 +10,8 @@
             "proglangs": "JavaScript, TypeScript",
             "frameworks": "React JS, Next JS",
             "libraries": "Axios, Redux TK, i18next, NextAuth",
-            "otherTech": "HTML, SCSS"
+            "otherTech": "HTML, SCSS",
+            "href": "movie-website"
         },
         {
             "img": "/projects/sultan.png",
@@ -22,7 +23,8 @@
             "proglangs": "JavaScript, TypeScript",
             "frameworks": "React JS",
             "libraries": "Redux TK",
-            "otherTech": "HTML, SCSS, Figma"
+            "otherTech": "HTML, SCSS, Figma",
+            "href": "sultan"
         }
     ],
     "miniProjects": [
@@ -36,7 +38,8 @@
             "proglangs": "TypeScript",
             "frameworks": "React JS",
             "libraries": "Redux TK",
-            "otherTech": "HTML, SCSS"
+            "otherTech": "HTML, SCSS",
+            "href": "snake"
         },
         {
             "img": "/projects/comment-section.png",
@@ -48,7 +51,8 @@
             "proglangs": "JavaScript",
             "frameworks": "-",
             "libraries": "-",
-            "otherTech": "HTML, SCSS"
+            "otherTech": "HTML, SCSS",
+            "href": "comment-section"
         },
         {
             "img": "/projects/repo-search.png",
@@ -60,7 +64,8 @@
             "proglangs": "JavaScript",
             "frameworks": "-",
             "libraries": "-",
-            "otherTech": "HTML, SCSS"
+            "otherTech": "HTML, SCSS",
+            "href": "repo-search"
         },
         {
             "img": "/projects/elite-fire.png",
@@ -72,7 +77,8 @@
             "proglangs": "-",
             "frameworks": "-",
             "libraries": "-",
-            "otherTech": "HTML, SCSS"
+            "otherTech": "HTML, SCSS",
+            "href": "elite-fire"
         },
         {
             "img": "/projects/conquest.png",
@@ -84,7 +90,8 @@
             "proglangs": "-",
             "frameworks": "-",
             "libraries": "-",
-            "otherTech": "HTML, SCSS"
+            "otherTech": "HTML, SCSS",
+            "href": "conquest"
         }
     ]
 }

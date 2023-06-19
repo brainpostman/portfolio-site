@@ -9,4 +9,5 @@ interface IProjectItem {
     frameworks: string;
     libraries: string;
     otherTech: string;
+    href: string;
 }

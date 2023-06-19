@@ -16,6 +16,11 @@
     text-align: center;
     margin: 10px auto;
     font-size: 24px;
+    transform: translateX(-200%);
+    filter: blur(10px);
+    opacity: 0;
+    transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.1s;
 }
 
 .items {
@@ -27,6 +32,20 @@
     gap: 24px;
 }
 
+.item {
+    transform: translateX(-25%);
+    filter: blur(10px);
+    opacity: 0;
+    transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+    transition-delay: 0.1s;
+    &:nth-of-type(2) {
+        transition-delay: 0.3s;
+    }
+    &:nth-of-type(3) {
+        transition-delay: 0.5s;
+    }
+}
+
 .seeAll {
     margin: 10px auto;
     text-align: center;
@@ -36,4 +55,17 @@
         transition: transform 0.4s ease;
         transform: scale(1.2);
     }
+    transform: translateX(-200%);
+    filter: blur(10px);
+    opacity: 0;
+    transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+    transition-delay: 0.1s;
+}
+
+.show {
+    transform: translateX(0);
+    filter: blur(0);
+    opacity: 1;
+    transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.1s;
 }

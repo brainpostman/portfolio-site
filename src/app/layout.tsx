@@ -22,7 +22,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <div className='blob pink' />
                     <div className='blob lilac' />
                 </div>
-                <PageFrame />
                 <svg>
                     <filter id='noiseFilter'>
                         <feTurbulence

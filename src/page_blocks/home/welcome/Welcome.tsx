@@ -77,16 +77,13 @@ const Welcome = () => {
 
     useEffect(() => {
         const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-            if (titleToggle) {
-                if (entries[0].isIntersecting) {
-                    setNavBarToggle(false);
-                    setNavMainToggle(true);
-                    console.log('in sight');
-                } else {
-                    setNavBarToggle(true);
-                    setNavMainToggle(false);
-                    console.log('out of sight');
-                }
+            if (!titleToggle) return;
+            if (entries[0].isIntersecting) {
+                setNavBarToggle(false);
+                setNavMainToggle(true);
+            } else {
+                setNavBarToggle(true);
+                setNavMainToggle(false);
             }
         };
         observer.current = new IntersectionObserver(callback);
