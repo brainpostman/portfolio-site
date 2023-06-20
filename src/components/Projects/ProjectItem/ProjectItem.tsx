@@ -3,9 +3,9 @@ import ImageFramed from '@/components/Layout/ImageFramed/ImageFramed';
 import styles from './ProjectItem.module.scss';
 import { Mulish } from 'next/font/google';
 import Link from 'next/link';
-import { forwardRef } from 'react';
+import { forwardRef, useRef } from 'react';
 
-interface ProjectItemProps {
+export interface ProjectItemProps {
     project: IProjectItem;
     className?: string;
 }
@@ -14,10 +14,15 @@ const adventPro = Mulish({ subsets: ['latin', 'cyrillic'] });
 
 const ProjectItem = forwardRef<HTMLElement, ProjectItemProps>(
     ({ project, className: propsClassName }, ref) => {
+        const titleRef = useRef<HTMLHeadingElement>(null);
+        const descrRef = useRef<HTMLParagraphElement>(null);
+
         return (
             <article ref={ref} className={`${styles.wrapper} ${propsClassName}`}>
                 <Link href={`/projects/${project.href}`} className={styles.link}>
-                    <h3 className={styles.title}>{project.name}</h3>
+                    <h3 ref={titleRef} className={styles.title}>
+                        {project.name}
+                    </h3>
                     <div className={styles.img}>
                         <ImageFramed
                             src={project.img}
@@ -28,13 +33,15 @@ const ProjectItem = forwardRef<HTMLElement, ProjectItemProps>(
                             link
                         />
                     </div>
-                    <p className={`${styles.descr} ${adventPro.className}`}>{project.shortDescr}</p>
+                    <p ref={descrRef} className={`${styles.descr} ${adventPro.className}`}>
+                        {project.shortDescr}
+                    </p>
                 </Link>
             </article>
         );
     }
 );
 
-ProjectItem.displayName = 'ProjectItem';
+ProjectItem.displayName = 'ProjectItemHome';
 
 export default ProjectItem;

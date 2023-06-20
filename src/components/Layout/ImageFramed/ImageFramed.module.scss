@@ -7,17 +7,21 @@
                 & .border {
                     transition: transform 0.4s ease;
                     &_topLeft {
-                        transform: translate3d(-7px, -7px, 0);
+                        transform: translate3d(-14px, -14px, 0);
                     }
                     &_topRight {
-                        transform: translate3d(7px, -7px, 0);
+                        transform: translate3d(14px, -14px, 0);
                     }
                     &_bottomLeft {
-                        transform: translate3d(-7px, 7px, 0);
+                        transform: translate3d(-14px, 14px, 0);
                     }
                     &_bottomRight {
-                        transform: translate3d(7px, 7px, 0);
+                        transform: translate3d(14px, 14px, 0);
                     }
+                }
+                & .img_image {
+                    transform: scale(1.05);
+                    transition: transform 0.4s ease;
                 }
             }
             &:active {
@@ -41,6 +45,7 @@
     }
     &_image {
         padding: 5px;
+        transition: transform 0.2s ease;
     }
 }
 

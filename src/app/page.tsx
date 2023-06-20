@@ -8,7 +8,6 @@ export default function Home() {
         <main className={styles.main}>
             <Welcome />
             <Projects />
-            <PageFrame />
         </main>
     );
 }

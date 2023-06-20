@@ -44,8 +44,8 @@
         {
             "img": "/projects/comment-section.png",
             "name": "Секция комментариев",
-            "shortDescr": "Мокап секции комментариев с датированием, лайками и удалением на нативном JavaScript",
-            "descr": "Мокап секции комментариев с датированием, лайками и удалением на нативном JS.",
+            "shortDescr": "Mock-up секции комментариев с датированием, лайками и удалением на нативном JavaScript",
+            "descr": "Mock-up секции комментариев с датированием, лайками и удалением на нативном JavaScript.",
             "hostLink": "https://brainpostman.github.io/comment-section",
             "repoLink": "https://github.com/brainpostman/comment-section",
             "proglangs": "JavaScript",

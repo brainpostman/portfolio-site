@@ -1,3 +1,5 @@
 import projects from './projects.json';
 
-export const allProjects = projects.mainProjects.concat(projects.miniProjects);
+const allProjects = projects.mainProjects.concat(projects.miniProjects);
+
+export default allProjects;

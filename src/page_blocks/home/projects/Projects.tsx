@@ -11,9 +11,6 @@ const Projects = () => {
     if (shownProjects.length < 3) {
         shownProjects = shownProjects.concat(projects.miniProjects.slice(0, 1));
     }
-    let titleClass = styles.title;
-    let seeAllClass = styles.seeAll;
-    let itemClass = styles.item;
 
     const observer = useRef<IntersectionObserver>();
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -25,9 +22,6 @@ const Projects = () => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add(styles.show);
-                } else {
-                    let classes = entry.target.className.split(' ');
-                    entry.target.classList.remove(styles.show);
                 }
             });
         };

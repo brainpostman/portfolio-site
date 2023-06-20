@@ -1,0 +1,55 @@
+.wrapper {
+    @include center-content;
+}
+
+.img {
+    aspect-ratio: 16/9;
+    height: 225px;
+    &_container {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        height: 100%;
+    }
+    &_image {
+        z-index: 100;
+        object-fit: cover;
+    }
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 8px 0;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    transform-origin: 0;
+    width: fit-content;
+    &:hover {
+        transform: scale(1.1);
+        transition: transform 0.4s ease;
+    }
+}
+
+.descr {
+    font-size: 16px;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    gap: 24px;
+}
+
+.divider {
+    height: 3px;
+    width: 100%;
+    background-color: $light;
+}
