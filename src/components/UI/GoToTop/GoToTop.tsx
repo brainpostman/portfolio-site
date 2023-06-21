@@ -1,9 +1,9 @@
 'use client';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
-import { BsArrowUpCircle } from 'react-icons/bs';
 import { CSSTransition } from 'react-transition-group-react-18';
 import styles from './GoToTop.module.scss';
 import { useEffect, useRef, useState } from 'react';
+import ArrowUpIcon from '@p/icon-up.svg';
 
 const transitionStylesNavBar = {
     enter: styles.transitionBar_enter,
@@ -23,17 +23,16 @@ const GoToTop = () => {
             const fullHeight = document.documentElement.scrollHeight;
             if (currentScroll / fullHeight > 0.075) {
                 setToggle(true);
-                console.log('true');
             } else {
                 setToggle(false);
-                console.log('false');
             }
         };
+        checkCurrentScroll();
         window.addEventListener('scroll', checkCurrentScroll);
         return () => {
             window.removeEventListener('scroll', checkCurrentScroll);
         };
-    }, [window.scrollY]);
+    }, []);
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -53,7 +52,7 @@ const GoToTop = () => {
             <nav ref={navBarRef} className={styles.navbar}>
                 <span className={styles.navbar_btn} onClick={scrollToTop} title={'К началу'}>
                     <TextHoverFrame>
-                        <BsArrowUpCircle className={styles.icons} />
+                        <ArrowUpIcon className={styles.icons} />
                     </TextHoverFrame>
                 </span>
             </nav>

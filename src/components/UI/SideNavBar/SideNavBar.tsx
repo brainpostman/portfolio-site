@@ -1,9 +1,12 @@
 'use client';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
-import { BsArrowUpCircle, BsCodeSlash, BsPersonCircle, BsTelephoneInbound } from 'react-icons/bs';
 import { CSSTransition } from 'react-transition-group-react-18';
 import styles from './SideNavBar.module.scss';
 import { useRef } from 'react';
+import ProjectsIcon from '@p/icon-projects.svg';
+import InfoIcon from '@p/icon-info.svg';
+import { MdOutlinePhone } from 'react-icons/md';
+import UpArrowIcon from '@p/icon-up.svg';
 
 interface SideNavBarProps {
     inCSSBoolean: boolean;
@@ -45,25 +48,25 @@ const SideNavBar = ({ inCSSBoolean }: SideNavBarProps) => {
                 <ul className={styles.navbar_list}>
                     <li onClick={scrollToTop} title={'К началу'}>
                         <TextHoverFrame>
-                            <BsArrowUpCircle className={styles.icons} />
+                            <UpArrowIcon className={styles.icons} />
                         </TextHoverFrame>
                     </li>
                     <span className={styles.separator} />
                     <li onClick={() => scrollToBlock('projects')} title={'Проекты'}>
                         <TextHoverFrame>
-                            <BsCodeSlash className={styles.icons} />
+                            <ProjectsIcon className={styles.icons} />
                         </TextHoverFrame>
                     </li>
                     <span className={styles.separator} />
                     <li onClick={() => scrollToBlock('about')} title={'О себе'}>
                         <TextHoverFrame>
-                            <BsPersonCircle className={styles.icons} />{' '}
+                            <InfoIcon className={styles.icons} />{' '}
                         </TextHoverFrame>
                     </li>
                     <span className={styles.separator} />
                     <li onClick={() => scrollToBlock('contacts')} title={'Контакты'}>
                         <TextHoverFrame>
-                            <BsTelephoneInbound className={styles.icons} />{' '}
+                            <MdOutlinePhone className={styles.icons} />{' '}
                         </TextHoverFrame>
                     </li>
                 </ul>
