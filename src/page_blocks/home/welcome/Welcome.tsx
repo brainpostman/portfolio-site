@@ -1,11 +1,13 @@
 'use client';
 import ImageFramed from '@/components/Layout/ImageFramed/ImageFramed';
 import styles from './Welcome.module.scss';
-import { BsPersonCircle, BsTelephoneInbound, BsCodeSlash } from 'react-icons/bs';
+import { MdOutlinePhone } from 'react-icons/md';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group-react-18';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import SideNavBar from '@/components/UI/SideNavBar/SideNavBar';
+import ProjectsIcon from '@p/icon-projects.svg';
+import InfoIcon from '@p/icon-info.svg';
 
 const transitionStylesPerson = {
     enter: styles.transitionLeft_enter,
@@ -62,20 +64,6 @@ const Welcome = () => {
     }, []);
 
     useEffect(() => {
-        if (titleToggle) {
-            transitionStylesNavMain = {
-                enter: styles.transitionTop_enter,
-                enterActive: styles.transitionTop_enterActive,
-                enterDone: styles.transitionTop_enterDone,
-                exit: styles.transitionTop_exit,
-                exitActive: styles.transitionTop_exitActive,
-                exitDone: styles.transitionTop_exitDone,
-            };
-        }
-        navDelay = 500;
-    }, [titleToggle]);
-
-    useEffect(() => {
         const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
             if (!titleToggle) return;
             if (entries[0].isIntersecting) {
@@ -118,8 +106,8 @@ const Welcome = () => {
                                 fill
                             />
                             <div className={styles.title_description}>
-                                <h1 className={styles.title_me}>Саттаров Марат</h1>
-                                <h1 className={styles.title_me}>
+                                <h1 className={styles.title_me}>Марат Саттаров</h1>
+                                <h1 className={styles.title_job}>
                                     <span className='hl_darkest'>Frontend-разработчик</span>
                                 </h1>
                                 <span className={styles.title_divider} />
@@ -147,7 +135,7 @@ const Welcome = () => {
                                 <li onClick={() => scrollToBlock('projects')}>
                                     <TextHoverFrame>
                                         <span>
-                                            Проекты <BsCodeSlash className={styles.icons} />
+                                            <ProjectsIcon className={styles.icons} /> Проекты
                                         </span>
                                     </TextHoverFrame>
                                 </li>
@@ -155,7 +143,7 @@ const Welcome = () => {
                                 <li onClick={() => scrollToBlock('about')}>
                                     <TextHoverFrame>
                                         <span>
-                                            О себе <BsPersonCircle className={styles.icons} />
+                                            <InfoIcon className={styles.icons} /> О себе
                                         </span>
                                     </TextHoverFrame>
                                 </li>
@@ -163,7 +151,7 @@ const Welcome = () => {
                                 <li onClick={() => scrollToBlock('contacts')}>
                                     <TextHoverFrame>
                                         <span>
-                                            Контакты <BsTelephoneInbound className={styles.icons} />
+                                            <MdOutlinePhone className={styles.icons} /> Контакты
                                         </span>
                                     </TextHoverFrame>
                                 </li>

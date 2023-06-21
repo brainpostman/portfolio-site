@@ -37,8 +37,8 @@
 
 .title {
     z-index: 50;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 24px;
+    @include play-normal;
     position: absolute;
     bottom: 100%;
     margin-bottom: 20px;
@@ -50,6 +50,7 @@
 }
 
 .descr {
+    @include rubik-normal;
     z-index: 50;
     font-size: 16px;
     position: absolute;

@@ -1,13 +1,42 @@
 //colors
 $bg: #090211;
-$magenta: #40128b;
-$pink: #fdcedf;
-$lilac: #91a9ff;
-$gold: #949494;
+$magenta: #482E89;
+$pink: #683C7B;
+$lilac: #6D6BCA;
+$gold: #BE8FC6;
 $lightest: #fdf4f5;
 $light: #e8a0bf;
 $dark: #ba90c6;
 $darkest: #c0dbea;
+
+//fonts
+$play: var(--font-play);
+$rubik: var(--font-rubik);
+
+//fonts-mixins
+@mixin play-normal {
+    font-family: $play, Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+@mixin play-bold {
+    font-family: $play, Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@mixin rubik-normal {
+    font-family: $rubik, Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    font-weight: 400;
+}
+
+@mixin rubik-bold {
+    font-family: $rubik, Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    font-weight: 700;
+}
 
 .hl_darkest {
     color: $darkest;

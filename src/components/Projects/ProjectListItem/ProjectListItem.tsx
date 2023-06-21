@@ -1,24 +1,37 @@
 'use client';
 import ImageFramed from '@/components/Layout/ImageFramed/ImageFramed';
 import styles from './ProjectListItem.module.scss';
-import { Mulish } from 'next/font/google';
-import { forwardRef, useRef } from 'react';
+import { forwardRef, useEffect, useRef, useState, useImperativeHandle } from 'react';
 import { ProjectItemProps } from '../ProjectItem/ProjectItem';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import Link from 'next/link';
 
-const adventPro = Mulish({ subsets: ['latin', 'cyrillic'] });
-
-interface ProjectListItemProps extends ProjectItemProps {
-    toggle: boolean;
-}
-
-const ProjectListItem = forwardRef<HTMLElement, ProjectListItemProps>(
+const ProjectListItem = forwardRef<HTMLElement, ProjectItemProps>(
     ({ project, className: propsClassName }, ref) => {
+        const [toggle, setToggle] = useState(false);
         const titleRef = useRef<HTMLHeadingElement>(null);
         const descrRef = useRef<HTMLParagraphElement>(null);
+        const parentRef = useRef<HTMLElement>(null);
+        const mutationRef = useRef<MutationObserver>();
+        useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => parentRef.current);
+        useEffect(() => {
+            const mutationCb = (records: MutationRecord[], observer: MutationObserver) => {
+                records[0];
+            };
+            // if (lastClass && lastClass.includes('show')) {
+            //     setToggle(true);
+            //     console.log('shown');
+            // } else {
+            //     setToggle(false);
+            // }
+            mutationRef.current = new MutationObserver(mutationCb);
+            if (parentRef.current) mutationRef.current.observe(parentRef.current);
+            return () => {
+                mutationRef.current?.disconnect();
+            }
+        }, []);
         return (
-            <article ref={ref} className={`${styles.wrapper} ${propsClassName}`}>
+            <article ref={parentRef} className={`${styles.wrapper} ${propsClassName}`}>
                 <div className={styles.container}>
                     <Link href={`/projects/${project.href}`}>
                         <div className={styles.img}>
@@ -39,7 +52,7 @@ const ProjectListItem = forwardRef<HTMLElement, ProjectListItemProps>(
                             </TextHoverFrame>
                         </h3>
                         <span className={styles.divider} />
-                        <p ref={descrRef} className={`${styles.descr} ${adventPro.className}`}>
+                        <p ref={descrRef} className={styles.descr}>
                             {project.shortDescr}
                         </p>
                     </div>

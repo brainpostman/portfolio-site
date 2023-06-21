@@ -4,10 +4,13 @@
 }
 
 .title {
-    font-weight: 700;
+    @include play-normal;
     text-align: center;
     margin: 16px auto 20px auto;
     font-size: 24px;
+    transform: translateX(-50%);
+    filter: blur(10px);
+    opacity: 0;
 }
 
 .items {

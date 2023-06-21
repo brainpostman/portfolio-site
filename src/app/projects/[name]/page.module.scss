@@ -1,0 +1,10 @@
+.main {
+    height: 100vh;
+    height: 100svh;
+}
+
+.wrapper {
+    @include wrapper;
+    padding: calc($frame-margin + 20px) calc(5vw + 100px);
+    height: auto;
+}

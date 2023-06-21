@@ -12,8 +12,8 @@
 .img {
     &_container {
         position: relative;
-        height: 210px;
-        width: 210px;
+        height: 300px;
+        width: 300px;
     }
     &_image {
         object-fit: cover;
@@ -32,6 +32,7 @@
     display: flex;
     align-items: center;
     gap: 24px;
+    @include play-bold;
     &_description {
         flex: 1 0 auto;
         font-size: 24px;
@@ -41,7 +42,7 @@
         gap: 24px;
     }
     &_stack {
-        font-size: 16px;
+        font-size: 20px;
     }
     &_divider {
         align-self: center;
@@ -50,20 +51,21 @@
         background-color: $light;
     }
     &_me {
-        font-weight: 700;
+        font-size: 36px;
     }
 }
 
 .navigation {
     position: relative;
+    @include play-normal;
     &_list {
         text-align: right;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 28px;
         & li {
-            font-size: 20px;
+            font-size: 24px;
             cursor: pointer;
             transition: all 0.2s ease;
             & span {

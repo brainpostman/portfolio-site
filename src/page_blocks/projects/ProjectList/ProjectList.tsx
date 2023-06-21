@@ -1,7 +1,7 @@
 'use client';
 import ProjectListItem from '@/components/Projects/ProjectListItem/ProjectListItem';
 import styles from './ProjectList.module.scss';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface ProjectListProps {
     title: string;
@@ -18,10 +18,6 @@ const ProjectList = ({ title, projects }: ProjectListProps) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add(styles.show);
-                    // } else {
-                    //     entry.target.classList.remove(styles.show);
-                    //     setToggle(false);
-                    // }
                 }
             });
         };
@@ -55,7 +51,6 @@ const ProjectList = ({ title, projects }: ProjectListProps) => {
                         <ProjectListItem
                             project={project}
                             key={project.name}
-                            toggle={true}
                             ref={(ref: HTMLElement) => {
                                 itemRefs.current.push(ref);
                             }}

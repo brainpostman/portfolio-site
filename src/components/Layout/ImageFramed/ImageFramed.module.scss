@@ -28,23 +28,23 @@
                 & .border {
                     transition: transform 0.4s ease;
                     &_topLeft {
-                        transform: translate3d(-2px, -2px, 0);
+                        transform: translate3d(-7px, -7px, 0);
                     }
                     &_topRight {
-                        transform: translate3d(2px, -2px, 0);
+                        transform: translate3d(7px, -7px, 0);
                     }
                     &_bottomLeft {
-                        transform: translate3d(-2px, 2px, 0);
+                        transform: translate3d(-7px, 7px, 0);
                     }
                     &_bottomRight {
-                        transform: translate3d(2px, 2px, 0);
+                        transform: translate3d(7px, 7px, 0);
                     }
                 }
             }
         }
     }
     &_image {
-        padding: 5px;
+        padding: 7px;
         transition: transform 0.2s ease;
     }
 }

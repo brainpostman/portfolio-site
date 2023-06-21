@@ -1,5 +1,11 @@
+import styles from './page.module.scss';
+
 const AllProjects = () => {
-    return <div>Hello</div>;
+    return (
+        <main className={styles.main}>
+            <div className={styles.wrapper}></div>
+        </main>
+    );
 };
 
 export default AllProjects;

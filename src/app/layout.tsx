@@ -1,18 +1,30 @@
 import PageFrame from '@/components/Layout/PageFrame/PageFrame';
 import '../styles/globals.scss';
-import { Comfortaa } from 'next/font/google';
-
-const comfortaa = Comfortaa({ subsets: ['latin', 'cyrillic'] });
+import { Play, Rubik } from 'next/font/google';
 
 export const metadata = {
-    title: 'Саттаров Марат, Frontend-разработчик',
+    title: 'Марат Саттаров, Frontend-разработчик',
     description: 'Веб-страница портфолио Саттарова Марата, Frontend-разработчика',
 };
 
+const play = Play({
+    subsets: ['latin', 'cyrillic'],
+    weight: ['400', '700'],
+    variable: '--font-play',
+    display: 'swap',
+});
+
+const rubik = Rubik({
+    subsets: ['latin', 'cyrillic'],
+    weight: ['400', '700'],
+    variable: '--font-rubik',
+    display: 'swap',
+});
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang='en'>
-            <body className={comfortaa.className}>
+        <html lang='en' className={`${play.variable} ${rubik.variable}`}>
+            <body>
                 <div className='wrapper'>{children}</div>
                 <div className='blobContainer one'>
                     <div className='blob gold' />

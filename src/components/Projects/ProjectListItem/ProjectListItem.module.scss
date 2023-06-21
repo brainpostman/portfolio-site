@@ -25,11 +25,11 @@
 }
 
 .title {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 24px;
+    @include play-normal;
     cursor: pointer;
     transition: transform 0.2s ease;
-    transform-origin: 0;
+    transform-origin: 50%;
     width: fit-content;
     &:hover {
         transform: scale(1.1);
@@ -38,14 +38,15 @@
 }
 
 .descr {
-    font-size: 16px;
+    @include rubik-normal;
+    font-size: 20   px;
 }
 
 .container {
     height: 100%;
     width: 100%;
     display: flex;
-    gap: 24px;
+    gap: 28px;
 }
 
 .divider {
