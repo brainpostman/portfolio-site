@@ -29,28 +29,46 @@
     @include play-normal;
     cursor: pointer;
     transition: transform 0.2s ease;
-    transform-origin: 50%;
+    transform-origin: 0;
     width: fit-content;
     &:hover {
         transform: scale(1.1);
         transition: transform 0.4s ease;
     }
+    transform: translateX(-150%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 1s ease, filter 1s ease, transform 1s ease;
 }
 
 .descr {
     @include rubik-normal;
-    font-size: 20   px;
+    font-size: 20px;
+    transform: translateX(-150%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 1.2s ease, filter 1.2s ease, transform 1.2s ease;
 }
 
 .container {
     height: 100%;
     width: 100%;
     display: flex;
-    gap: 28px;
+    gap: 36px;
 }
 
 .divider {
     height: 3px;
     width: 100%;
     background-color: $light;
+    transform: translateX(-150%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 1.2s ease, filter 1.2s ease, transform 1.2s ease;
+}
+
+.show {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0px);
 }

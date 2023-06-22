@@ -16,19 +16,24 @@ const ProjectListItem = forwardRef<HTMLElement, ProjectItemProps>(
         useImperativeHandle<HTMLElement | null, HTMLElement | null>(ref, () => parentRef.current);
         useEffect(() => {
             const mutationCb = (records: MutationRecord[], observer: MutationObserver) => {
-                records[0];
+                if (toggle) return;
+                if (records[0].type !== 'attributes' && records[0].attributeName !== 'class')
+                    return;
+                const target = records[0].target as Element;
+                if (target.className.includes('show') && !toggle) {
+                    setToggle(true);
+                    console.log('show');
+                } else {
+                    setToggle(false);
+                    console.log('unshow');
+                }
             };
-            // if (lastClass && lastClass.includes('show')) {
-            //     setToggle(true);
-            //     console.log('shown');
-            // } else {
-            //     setToggle(false);
-            // }
             mutationRef.current = new MutationObserver(mutationCb);
-            if (parentRef.current) mutationRef.current.observe(parentRef.current);
+            if (parentRef.current)
+                mutationRef.current.observe(parentRef.current, { attributes: true });
             return () => {
                 mutationRef.current?.disconnect();
-            }
+            };
         }, []);
         return (
             <article ref={parentRef} className={`${styles.wrapper} ${propsClassName}`}>
@@ -46,13 +51,17 @@ const ProjectListItem = forwardRef<HTMLElement, ProjectItemProps>(
                         </div>
                     </Link>
                     <div className={styles.info}>
-                        <h3 ref={titleRef} className={styles.title}>
-                            <TextHoverFrame>
+                        <h3
+                            ref={titleRef}
+                            className={`${styles.title} ${toggle ? styles.show : ''}`}>
+                            <TextHoverFrame className={styles.title_hover}>
                                 <Link href={`/projects/${project.href}`}>{project.name}</Link>
                             </TextHoverFrame>
                         </h3>
-                        <span className={styles.divider} />
-                        <p ref={descrRef} className={styles.descr}>
+                        <span className={`${styles.divider} ${toggle ? styles.show : ''}`} />
+                        <p
+                            ref={descrRef}
+                            className={`${styles.descr} ${toggle ? styles.show : ''}`}>
                             {project.shortDescr}
                         </p>
                     </div>
