@@ -3,12 +3,10 @@
 }
 
 .img {
-    aspect-ratio: 16/9;
-    height: 225px;
     &_container {
         position: relative;
         aspect-ratio: 16 / 9;
-        height: 100%;
+        height: 225px;
     }
     &_image {
         z-index: 100;
@@ -32,13 +30,16 @@
     transform-origin: 0;
     width: fit-content;
     &:hover {
-        transform: scale(1.1);
-        transition: transform 0.4s ease;
+        scale: 1.1;
+        transition: scale 0.4s ease;
+    }
+    &:active {
+        scale: 1.05;
     }
     transform: translateX(-150%);
     opacity: 0;
     filter: blur(10px);
-    transition: opacity 1s ease, filter 1s ease, transform 1s ease;
+    transition: opacity 1s ease, filter 1s ease, transform 1s ease, scale 0.2s ease;
 }
 
 .descr {

@@ -9,20 +9,20 @@
             "repoLink": "https://github.com/Hapnees/ivi",
             "proglangs": "JavaScript, TypeScript",
             "frameworks": "React JS, Next JS",
-            "libraries": "Axios, Redux TK, i18next, NextAuth",
-            "otherTech": "HTML, SCSS",
+            "libraries": "Axios, Redux TK, i18next, NextAuth, Jest",
+            "otherTech": "HTML, SCSS, storyBook",
             "href": "movie-website"
         },
         {
             "img": "/projects/sultan.png",
             "name": "Магазин косметики «Султан»",
             "shortDescr": "Сайт магазина по продаже косметики с функционалом каталога, корзины и мини-админкой",
-            "descr": "Одно из личных заданий в рамках стажировки Hotels.ru. Согласно ТЗ необходимо было спроектировать ряд страниц вебсайта по данному шаблону (в Figma). Это: страница каталога с возможностью сортировки товаров, фильтрации по типам ухода, производителям, цене; страница корзины с возможность добавления товаров и управлением её содержимым, как из самой корзины, каталога и страницы самих товаров. Каждая карточка товара ведёт на соответствующую страницу товара с подгруженной информацией. Также сделана страница мини-админки с CRUD-функционалом. Как мок бэкэнда информация о товарах хранится в localStorage. Вёрстка адаптивная.",
+            "descr": "Одно из самостоятельных заданий в рамках стажировки Hotels.ru. Согласно ТЗ необходимо было спроектировать ряд страниц вебсайта по данному шаблону (в Figma). Это: страница каталога с возможностью сортировки товаров, фильтрации по типам ухода, производителям, цене; страница корзины с возможность добавления товаров и управлением её содержимым, как из самой корзины, каталога и страницы самих товаров. Каждая карточка товара ведёт на соответствующую страницу товара с подгруженной информацией. Также сделана страница мини-админки с CRUD-функционалом. Как мок бэкэнда информация о товарах хранится в localStorage. Вёрстка адаптивная.",
             "hostLink": "https://brainpostman.github.io/sultan-react-ts",
             "repoLink": "https://github.com/brainpostman/sultan-react-ts",
             "proglangs": "JavaScript, TypeScript",
             "frameworks": "React JS",
-            "libraries": "Redux TK",
+            "libraries": "Redux TK, Vitest",
             "otherTech": "HTML, SCSS, Figma",
             "href": "sultan"
         }
@@ -57,7 +57,7 @@
         {
             "img": "/projects/repo-search.png",
             "name": "Поиск репозиториев",
-            "shortDescr": "Поисковик репозиториев GitHub",
+            "shortDescr": "Поисковик репозиториев GitHub на нативном JavaScript",
             "descr": "Поисковик репоизториев GitHub на нативном JavaScript по запросу fetch() на API GitHub.",
             "hostLink": "https://brainpostman.github.io/github-repo-search",
             "repoLink": "https://github.com/brainpostman/github-repo-search",

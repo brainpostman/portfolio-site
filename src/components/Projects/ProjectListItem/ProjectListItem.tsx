@@ -22,10 +22,8 @@ const ProjectListItem = forwardRef<HTMLElement, ProjectItemProps>(
                 const target = records[0].target as Element;
                 if (target.className.includes('show') && !toggle) {
                     setToggle(true);
-                    console.log('show');
                 } else {
                     setToggle(false);
-                    console.log('unshow');
                 }
             };
             mutationRef.current = new MutationObserver(mutationCb);
