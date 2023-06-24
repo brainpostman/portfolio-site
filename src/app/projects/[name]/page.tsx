@@ -1,4 +1,4 @@
-import ProjectPage from '@/components/Projects/ProjectPage/ProjectPage';
+import ProjectPage from '@/page_blocks/projects/ProjectPage/ProjectPage';
 import styles from './page.module.scss';
 import projectsMap from '@/data/allprojects.ts';
 

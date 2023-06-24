@@ -26,16 +26,15 @@ const Projects = () => {
             });
         };
         observer.current = new IntersectionObserver(callback);
-        if (observer.current) {
-            if (titleRef.current && seeAllRef.current && itemRefs.current) {
-                observer.current.observe(titleRef.current);
-                observer.current.observe(seeAllRef.current);
-                itemRefs.current.forEach((item) => {
-                    if (item) {
-                        observer.current?.observe(item);
-                    }
-                });
-            }
+        if (!observer.current) return;
+        if (titleRef.current && seeAllRef.current && itemRefs.current) {
+            observer.current.observe(titleRef.current);
+            observer.current.observe(seeAllRef.current);
+            itemRefs.current.forEach((el) => {
+                if (el) {
+                    observer.current?.observe(el);
+                }
+            });
         }
 
         return () => {
