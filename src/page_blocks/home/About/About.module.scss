@@ -1,0 +1,92 @@
+.about {
+    height: 100vh;
+    height: 100svh;
+}
+
+.wrapper {
+    @include wrapper;
+    padding: calc($frame-margin + 20px) calc(5vw + 50px) calc($frame-margin + 20px) calc(5vw + 50px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title {
+    @include play-normal;
+    text-align: center;
+    margin: 10px auto;
+    font-size: 36px;
+    translate: -200% 0 0;
+    filter: blur(20px);
+    opacity: 0;
+}
+
+.info {
+    @include rubik-normal;
+    font-size: 20px;
+    display: flex;
+    gap: 24px;
+    &_item {
+        flex: 1 1 33%;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        translate: -100% 0 0;
+        filter: blur(20px);
+        opacity: 0;
+        &:nth-of-type(2) {
+            transition-delay: 0.3s;
+        }
+        &:nth-of-type(3) {
+            transition-delay: 0.5s;
+        }
+        &:nth-of-type(even) {
+            & .info_item_title {
+                color: $darkest;
+            }
+        }
+        &_title {
+            @include rubik-bold;
+            font-size: 20px;
+            color: $dark;
+        }
+        &_list {
+            padding-left: 20px;
+            & li {
+                list-style: circle;
+            }
+        }
+    }
+}
+
+.divider {
+    height: 3px;
+    width: 100%;
+    background-color: $light;
+}
+
+.descr {
+    @include rubik-normal;
+    font-size: 20px;
+    text-align: justify;
+    text-indent: 40px;
+    &_paragraph {
+        translate: 0 200% 0;
+        filter: blur(20px);
+        opacity: 0;
+    }
+    & p:first-of-type {
+        margin-bottom: 24px;
+    }
+    & p:last-of-type {
+        transition-delay: 0.3s;
+    }
+}
+
+.show {
+    translate: 0 0 0;
+    filter: blur(0);
+    opacity: 1;
+    transition: translate 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.1s;
+}
