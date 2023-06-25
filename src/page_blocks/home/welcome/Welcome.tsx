@@ -143,15 +143,7 @@ const Welcome = () => {
                                 <li onClick={() => scrollToBlock('about')}>
                                     <TextHoverFrame>
                                         <span>
-                                            <InfoIcon className={styles.icons} /> О себе
-                                        </span>
-                                    </TextHoverFrame>
-                                </li>
-                                <span className={styles.separator} />
-                                <li onClick={() => scrollToBlock('contacts')}>
-                                    <TextHoverFrame>
-                                        <span>
-                                            <MdOutlinePhone className={styles.icons} /> Контакты
+                                            <InfoIcon className={styles.icons} /> О себе/Контакты
                                         </span>
                                     </TextHoverFrame>
                                 </li>

@@ -2,7 +2,7 @@
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import { CSSTransition } from 'react-transition-group-react-18';
 import styles from './SideNavBar.module.scss';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import ProjectsIcon from '@p/icon-projects.svg';
 import InfoIcon from '@p/icon-info.svg';
 import { MdOutlinePhone } from 'react-icons/md';
@@ -23,6 +23,14 @@ const transitionStylesNavBar = {
 
 const SideNavBar = ({ inCSSBoolean }: SideNavBarProps) => {
     const navBarRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        if (!navBarRef.current) return;
+        const height = navBarRef.current.style.height;
+        const width = navBarRef.current.style.width;
+        navBarRef.current.style.top = `calc(50vh - ${parseInt(height) / 2}px)`;
+        navBarRef.current.style.right = `calc(3.75vw + ${parseInt(width) / 2}px)`;
+    }, []);
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -58,15 +66,9 @@ const SideNavBar = ({ inCSSBoolean }: SideNavBarProps) => {
                         </TextHoverFrame>
                     </li>
                     <span className={styles.separator} />
-                    <li onClick={() => scrollToBlock('about')} title={'О себе'}>
+                    <li onClick={() => scrollToBlock('about')} title={'О себе/Контакты'}>
                         <TextHoverFrame>
                             <InfoIcon className={styles.icons} />{' '}
-                        </TextHoverFrame>
-                    </li>
-                    <span className={styles.separator} />
-                    <li onClick={() => scrollToBlock('contacts')} title={'Контакты'}>
-                        <TextHoverFrame>
-                            <MdOutlinePhone className={styles.icons} />{' '}
                         </TextHoverFrame>
                     </li>
                 </ul>
