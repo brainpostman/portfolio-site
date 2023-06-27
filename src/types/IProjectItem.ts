@@ -1,4 +1,4 @@
-interface IProjectItem {
+export interface IProjectItem {
     img: string;
     name: string;
     shortDescr: string;

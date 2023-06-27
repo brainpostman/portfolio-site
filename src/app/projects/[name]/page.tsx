@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import ProjectPage from '@/page_blocks/projects/ProjectPage/ProjectPage';
 import styles from './page.module.scss';
 import projectsMap from '@/data/allprojects.ts';

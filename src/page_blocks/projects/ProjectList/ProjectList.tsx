@@ -2,6 +2,7 @@
 import ProjectListItem from '@/components/Projects/ProjectListItem/ProjectListItem';
 import styles from './ProjectList.module.scss';
 import { useEffect, useRef } from 'react';
+import { IProjectItem } from '@/types/IProjectItem';
 
 interface ProjectListProps {
     title: string;
