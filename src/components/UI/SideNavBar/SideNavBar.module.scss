@@ -3,6 +3,7 @@
     top: calc(50vh - 121.5px);
     right: calc(3.75vw + 18px);
     &_list {
+        margin-right: 200%;
         position: absolute;
         display: flex;
         flex-direction: column;

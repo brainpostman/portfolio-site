@@ -24,14 +24,6 @@ const transitionStylesNavBar = {
 const SideNavBar = ({ inCSSBoolean }: SideNavBarProps) => {
     const navBarRef = useRef<HTMLElement>(null);
 
-    useEffect(() => {
-        if (!navBarRef.current) return;
-        const height = navBarRef.current.style.height;
-        const width = navBarRef.current.style.width;
-        navBarRef.current.style.top = `calc(50vh - ${parseInt(height) / 2}px)`;
-        navBarRef.current.style.right = `calc(3.75vw + ${parseInt(width) / 2}px)`;
-    }, []);
-
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,

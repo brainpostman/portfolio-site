@@ -117,6 +117,7 @@
         & svg {
             height: 44px;
             width: 44px;
+            fill: $lightest;
         }
         &:hover {
             scale: 1.2;
@@ -124,36 +125,6 @@
         }
         &:active {
             scale: 1.1;
-        }
-        &:nth-of-type(1) {
-            & svg {
-                fill: #27a7e7;
-            }
-        }
-        &:nth-of-type(2) {
-            & svg {
-                fill: #25d366;
-            }
-        }
-        &:nth-of-type(3) {
-            & svg {
-                fill: #7289da;
-            }
-        }
-        &:nth-of-type(4) {
-            & svg {
-                fill: #fff;
-            }
-        }
-        &:nth-of-type(5) {
-            & svg {
-                fill: #e1011c;
-            }
-        }
-        &:nth-of-type(6) {
-            & svg {
-                fill: $lightest;
-            }
         }
     }
     transition-delay: 0.7s;

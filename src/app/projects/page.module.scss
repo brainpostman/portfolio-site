@@ -7,6 +7,8 @@
     @include wrapper;
     padding: calc($frame-margin + 20px) calc(5vw + 30px) calc($frame-margin + 20px) calc(5vw + 100px);
     height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
@@ -23,5 +25,5 @@
 }
 
 .mainProjects {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }

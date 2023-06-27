@@ -7,6 +7,7 @@ import VkIcon from '@p/vk.svg';
 import DiscordIcon from '@p/discord.svg';
 import TelegramIcon from '@p/telegram.svg';
 import WhatsAppIcon from '@p/WhatsApp.svg';
+import { VscGithub } from 'react-icons/vsc';
 
 const About = () => {
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -124,26 +125,6 @@ const About = () => {
                             </TextHoverFrame>
                         </a>
                         <a
-                            href={'https://discordapp.com/users/229662388910161921'}
-                            target='_blank'
-                            rel='noreferrer'
-                            className={styles.links_link}
-                            title='Discord'>
-                            <TextHoverFrame>
-                                <DiscordIcon />
-                            </TextHoverFrame>
-                        </a>
-                        <a
-                            href={'https://vk.com/mksbrain'}
-                            target='_blank'
-                            rel='noreferrer'
-                            className={styles.links_link}
-                            title='VKontakte'>
-                            <TextHoverFrame>
-                                <VkIcon />
-                            </TextHoverFrame>
-                        </a>
-                        <a
                             href={'https://ufa.hh.ru/resume/d305e065ff0585b2330039ed1f356533635556'}
                             target='_blank'
                             rel='noreferrer'
@@ -151,6 +132,26 @@ const About = () => {
                             title='hh.ru'>
                             <TextHoverFrame>
                                 <HeadHunterIcon />
+                            </TextHoverFrame>
+                        </a>
+                        <a
+                            href={'https://github.com/brainpostman'}
+                            target='_blank'
+                            rel='noreferrer'
+                            className={styles.links_link}
+                            title='GitHub'>
+                            <TextHoverFrame>
+                                <VscGithub />
+                            </TextHoverFrame>
+                        </a>
+                        <a
+                            href={'https://discordapp.com/users/229662388910161921'}
+                            target='_blank'
+                            rel='noreferrer'
+                            className={styles.links_link}
+                            title='Discord'>
+                            <TextHoverFrame>
+                                <DiscordIcon />
                             </TextHoverFrame>
                         </a>
                     </div>
