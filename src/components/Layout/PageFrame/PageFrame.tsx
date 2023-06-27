@@ -45,7 +45,7 @@ const PageFrame = () => {
     const bottomLeftRef = useRef<HTMLDivElement>(null);
     const bottomRightRef = useRef<HTMLDivElement>(null);
     const timeoutRef = useRef<number>(-1);
-
+    const delay = 800;
     const [inBool, setInBool] = useState(false);
 
     useEffect(() => {
@@ -67,7 +67,7 @@ const PageFrame = () => {
         <div className={styles.frame}>
             <CSSTransition
                 in={inBool}
-                timeout={400}
+                timeout={delay}
                 classNames={transitionStylesTopLeft}
                 mountOnEnter
                 unmountOnExit
@@ -79,7 +79,7 @@ const PageFrame = () => {
             </CSSTransition>
             <CSSTransition
                 in={inBool}
-                timeout={400}
+                timeout={delay}
                 classNames={transitionStylesTopRight}
                 mountOnEnter
                 unmountOnExit
@@ -91,7 +91,7 @@ const PageFrame = () => {
             </CSSTransition>
             <CSSTransition
                 in={inBool}
-                timeout={400}
+                timeout={delay}
                 classNames={transitionStylesBottomLeft}
                 mountOnEnter
                 unmountOnExit
@@ -103,7 +103,7 @@ const PageFrame = () => {
             </CSSTransition>
             <CSSTransition
                 in={inBool}
-                timeout={400}
+                timeout={delay}
                 classNames={transitionStylesBottomRight}
                 mountOnEnter
                 unmountOnExit

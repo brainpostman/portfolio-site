@@ -65,7 +65,7 @@
         align-items: center;
         gap: 28px;
         & li {
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
             transition: all 0.2s ease;
             & span {
@@ -124,7 +124,7 @@
 }
 
 .transitionLeft {
-    $transition: all 0.5s 0.15s;
+    $transitionL: opacity 0.5s 0.15s ease, transform 0.5s 0.15s ease, filter 0.5s 0.15s ease;
     &_enter {
         opacity: 0;
         transform: translateX(-10vw);
@@ -134,7 +134,7 @@
         opacity: 1;
         transform: translateX(0);
         filter: blur(0px);
-        transition: $transition;
+        transition: $transitionL;
     }
     &_enterDone {
         opacity: 1;
@@ -150,7 +150,7 @@
         opacity: 0;
         filter: blur(20px);
         transform: translateX(-10vw);
-        transition: $transition;
+        transition: $transitionL;
     }
     &_exitDone {
         opacity: 0;
@@ -160,7 +160,7 @@
 }
 
 .transitionRight {
-    $transition: all 0.5s 0.3s;
+    $transitionR: opacity 0.5s 0.3s ease, transform 0.5s 0.3s ease, filter 0.5s 0.3s ease;
     &_enter {
         opacity: 0;
         filter: blur(20px);
@@ -170,7 +170,7 @@
         opacity: 1;
         filter: blur(0px);
         transform: translateX(0);
-        transition: $transition;
+        transition: $transitionR;
     }
     &_enterDone {
         opacity: 1;
@@ -186,43 +186,7 @@
         opacity: 0;
         filter: blur(20px);
         transform: translateY(-10vh);
-        transition: $transition;
-    }
-    &_exitDone {
-        opacity: 0;
-        filter: blur(20px);
-        transform: translateY(-10vh);
-    }
-}
-
-.transitionTop {
-    $transition: all 0.5s;
-    &_enter {
-        opacity: 0;
-        filter: blur(20px);
-        transform: translateY(-10vh);
-    }
-    &_enterActive {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateX(0);
-        transition: $transition;
-    }
-    &_enterDone {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateX(0);
-    }
-    &_exit {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateX(0);
-    }
-    &_exitActive {
-        opacity: 0;
-        filter: blur(20px);
-        transform: translateY(-10vh);
-        transition: $transition;
+        transition: $transitionR;
     }
     &_exitDone {
         opacity: 0;

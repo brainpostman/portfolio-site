@@ -22,7 +22,7 @@
             "repoLink": "https://github.com/brainpostman/sultan-react-ts",
             "proglangs": "JavaScript, TypeScript",
             "frameworks": "React JS",
-            "libraries": "Redux TK, Vitest",
+            "libraries": "Redux TK, Vitest, Cypress",
             "otherTech": "HTML, SCSS, Figma",
             "href": "sultan"
         }

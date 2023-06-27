@@ -1,5 +1,5 @@
 'use client';
-import ProjectItem from '@/components/Projects/ProjectItem/ProjectItem';
+import ProjectHomeItem from '@/components/Projects/ProjectHomeItem/ProjectItem';
 import styles from './Projects.module.scss';
 import projects from '@/data/projects.json';
 import Link from 'next/link';
@@ -52,7 +52,7 @@ const Projects = () => {
                 </h1>
                 <div className={styles.items}>
                     {shownProjects.map((project) => (
-                        <ProjectItem
+                        <ProjectHomeItem
                             key={project.name}
                             project={project}
                             ref={(ref: HTMLElement) => {
@@ -63,7 +63,7 @@ const Projects = () => {
                     ))}
                 </div>
                 <h2 className={styles.seeAll} ref={seeAllRef}>
-                    <Link href={'/projects/all'}>
+                    <Link href={'/projects'}>
                         <TextHoverFrame>Смотреть все →</TextHoverFrame>
                     </Link>
                 </h2>

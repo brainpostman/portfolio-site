@@ -1,0 +1,95 @@
+.breadcrumbs {
+    @include rubik-normal;
+    line-height: 1;
+    font-size: 16px;
+    display: flex;
+    gap: 59px;
+    margin: 12px 0;
+    align-self: flex-start;
+    opacity: 0;
+    filter: blur(20px);
+    translate: -100% 0 0;
+    &_link {
+        transition: scale 0.2s ease;
+        &:hover {
+            transition: scale 0.4s ease;
+            scale: 1.2;
+        }
+        &:active {
+            scale: 1.1;
+        }
+    }
+    &_container {
+        position: relative;
+    }
+    &_last {
+        @include rubik-bold;
+        line-height: 1;
+        color: $darkest;
+    }
+}
+
+.separator {
+    height: 11px;
+    width: 11px;
+    position: absolute;
+    right: -35px;
+    top: calc(50% - 5.5px);
+    //outline: 1px solid white;
+    &::after {
+        position: absolute;
+        content: "";
+        height: 11px;
+        width: 3px;
+        background-color: $light;
+        left: 4px;
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        width: 11px;
+        height: 3px;
+        background-color: $light;
+        top: 4px;
+        left: 0;
+    }
+}
+
+$transition: translate 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+
+.transitionLeft {
+    &_enter {
+        opacity: 0;
+        translate: -100% 0 0;
+        filter: blur(20px);
+    }
+    &_enterActive {
+        opacity: 1;
+        translate: 0;
+        filter: blur(0px);
+        transition: $transition;
+        transition-delay: 0.1s;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        translate: 0;
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        translate: 0;
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        translate: -100% 0 0;
+        transition: $transition;
+        transition-delay: 0.1s;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        translate: -100% 0 0;
+    }
+}

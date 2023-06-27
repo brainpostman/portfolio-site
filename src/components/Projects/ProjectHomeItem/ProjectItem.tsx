@@ -12,7 +12,7 @@ export interface ProjectItemProps {
 
 const adventPro = Mulish({ subsets: ['latin', 'cyrillic'] });
 
-const ProjectItem = forwardRef<HTMLElement, ProjectItemProps>(
+const ProjectHomeItem = forwardRef<HTMLElement, ProjectItemProps>(
     ({ project, className: propsClassName }, ref) => {
         const titleRef = useRef<HTMLHeadingElement>(null);
         const descrRef = useRef<HTMLParagraphElement>(null);
@@ -42,6 +42,6 @@ const ProjectItem = forwardRef<HTMLElement, ProjectItemProps>(
     }
 );
 
-ProjectItem.displayName = 'ProjectItemHome';
+ProjectHomeItem.displayName = 'ProjectHomeItem';
 
-export default ProjectItem;
+export default ProjectHomeItem;

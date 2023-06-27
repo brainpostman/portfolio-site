@@ -37,7 +37,6 @@ const Welcome = () => {
     const navMainRef = useRef<HTMLElement>(null);
 
     const timeoutRef = useRef<number>(-1);
-    let navDelay = 800;
 
     const scrollToBlock = (id: string) => {
         const el = document.getElementById(id);
@@ -92,7 +91,7 @@ const Welcome = () => {
                 <header className={styles.header}>
                     <CSSTransition
                         in={titleToggle}
-                        timeout={650}
+                        timeout={1000}
                         classNames={transitionStylesPerson}
                         mountOnEnter
                         unmountOnExit
@@ -126,7 +125,7 @@ const Welcome = () => {
                     </CSSTransition>
                     <CSSTransition
                         in={navMainToggle}
-                        timeout={navDelay}
+                        timeout={1000}
                         classNames={transitionStylesNavMain}
                         nodeRef={navMainRef}
                         mountOnEnter>
