@@ -4,6 +4,7 @@ import styles from './ProjectItem.module.scss';
 import { Mulish } from 'next/font/google';
 import Link from 'next/link';
 import { forwardRef, useRef } from 'react';
+import { IProjectItem } from '@/types/IProjectItem';
 
 export interface ProjectItemProps {
     project: IProjectItem;
