@@ -1,3 +1,4 @@
+import { IProjectItem } from '@/types/IProjectItem';
 import projects from './projects.json';
 
 const allProjects = projects.mainProjects.concat(projects.miniProjects);

@@ -1,7 +1,6 @@
 'use client';
 import ImageFramed from '@/components/Layout/ImageFramed/ImageFramed';
 import styles from './Welcome.module.scss';
-import { MdOutlinePhone } from 'react-icons/md';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group-react-18';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';

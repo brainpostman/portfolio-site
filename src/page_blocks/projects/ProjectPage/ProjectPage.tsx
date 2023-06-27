@@ -6,7 +6,7 @@ import { VscGithub } from 'react-icons/vsc';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import { CSSTransition } from 'react-transition-group-react-18';
 import { useEffect, useRef, useState } from 'react';
-import BreadCrumbs from '@/components/UI/BreadCrumbs/BreadCrumbs';
+import { IProjectItem } from '@/types/IProjectItem';
 
 interface ProjectPageProps {
     project: IProjectItem;
