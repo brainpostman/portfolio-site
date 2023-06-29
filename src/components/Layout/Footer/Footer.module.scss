@@ -1,0 +1,46 @@
+$transition: translate 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
+
+.footer {
+    opacity: 0;
+    filter: blur(20px);
+    translate: 0 200% 0;
+    position: absolute;
+    bottom: 0;
+}
+
+.transitionBottom {
+    &_enter {
+        opacity: 0;
+        filter: blur(20px);
+        translate: 0 200% 0;
+    }
+    &_enterActive {
+        opacity: 1;
+        filter: blur(0px);
+        translate: 0 0 0;
+        transition: $transition;
+        transition-delay: 0.5s;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        translate: 0 0 0;
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        translate: 0 0 0;
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        translate: 0 200% 0;
+        transition: $transition;
+        transition-delay: 0.5s;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        translate: 0 200% 0;
+    }
+}

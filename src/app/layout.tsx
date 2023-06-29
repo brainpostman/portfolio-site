@@ -1,10 +1,13 @@
 import PageFrame from '@/components/Layout/PageFrame/PageFrame';
 import '../styles/globals.scss';
 import { Play, Rubik } from 'next/font/google';
+import Footer from '@/components/Layout/Footer/Footer';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: 'Марат Саттаров, Frontend-разработчик',
     description: 'Веб-страница портфолио Саттарова Марата, Frontend-разработчика',
+    viewport: 'width=device-width, initial-scale=1.0',
 };
 
 const play = Play({
@@ -25,27 +28,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang='en' className={`${play.variable} ${rubik.variable}`}>
             <body>
-                <div className='wrapper'>{children}</div>
-                <div className='blobContainer one'>
-                    <div className='blob gold' />
+                <div className='container'>
+                    <div className='wrapper'>{children}</div>
+                    <div className='blobContainer one'>
+                        <div className='blob gold' />
+                    </div>
+                    <div className='blobContainer many'>
+                        <div className='blob magenta' />
+                        <div className='blob pink' />
+                        <div className='blob lilac' />
+                    </div>
+                    <PageFrame />
+                    <svg>
+                        <filter id='noiseFilter'>
+                            <feTurbulence
+                                type='fractalNoise'
+                                baseFrequency='0.6'
+                                stitchTiles='stitch'
+                            />
+                            <feComposite operator='in' in2='SourceGraphic' result='monoNoise' />
+                            <feBlend in='SourceGraphic' in2='monoNoise' mode='screen' />
+                        </filter>
+                    </svg>
                 </div>
-                <div className='blobContainer many'>
-                    <div className='blob magenta' />
-                    <div className='blob pink' />
-                    <div className='blob lilac' />
-                </div>
-                <PageFrame />
-                <svg>
-                    <filter id='noiseFilter'>
-                        <feTurbulence
-                            type='fractalNoise'
-                            baseFrequency='0.6'
-                            stitchTiles='stitch'
-                        />
-                        <feComposite operator='in' in2='SourceGraphic' result='monoNoise' />
-                        <feBlend in='SourceGraphic' in2='monoNoise' mode='screen' />
-                    </filter>
-                </svg>
+                {/* <Footer /> */}
             </body>
         </html>
     );
