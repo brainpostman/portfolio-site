@@ -1,7 +1,6 @@
 import PageFrame from '@/components/Layout/PageFrame/PageFrame';
 import '../styles/globals.scss';
 import { Play, Rubik } from 'next/font/google';
-import Footer from '@/components/Layout/Footer/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -51,7 +50,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         </filter>
                     </svg>
                 </div>
-                {/* <Footer /> */}
             </body>
         </html>
     );

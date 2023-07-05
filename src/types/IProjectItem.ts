@@ -1,5 +1,6 @@
 export interface IProjectItem {
     img: string;
+    blurImg: string;
     name: string;
     shortDescr: string;
     descr: string;

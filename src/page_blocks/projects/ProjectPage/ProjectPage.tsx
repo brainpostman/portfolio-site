@@ -82,6 +82,8 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
                         className={styles.img_image}
                         fill
                         ref={imageRef}
+                        placeholder='blur'
+                        blurDataURL={project.blurImg}
                     />
                 </CSSTransition>
                 <CSSTransition

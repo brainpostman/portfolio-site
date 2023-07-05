@@ -45,6 +45,8 @@ const ProjectListItem = forwardRef<HTMLElement, ProjectItemProps>(
                                 className={styles.img_image}
                                 fill
                                 link
+                                placeholder='blur'
+                                blurDataURL={project.blurImg}
                             />
                         </div>
                     </Link>

@@ -1,7 +1,6 @@
 'use client';
 import ImageFramed from '@/components/Layout/ImageFramed/ImageFramed';
 import styles from './ProjectItem.module.scss';
-import { Mulish } from 'next/font/google';
 import Link from 'next/link';
 import { forwardRef, useRef } from 'react';
 import { IProjectItem } from '@/types/IProjectItem';
@@ -10,8 +9,6 @@ export interface ProjectItemProps {
     project: IProjectItem;
     className?: string;
 }
-
-const adventPro = Mulish({ subsets: ['latin', 'cyrillic'] });
 
 const ProjectHomeItem = forwardRef<HTMLElement, ProjectItemProps>(
     ({ project, className: propsClassName }, ref) => {
@@ -30,11 +27,13 @@ const ProjectHomeItem = forwardRef<HTMLElement, ProjectItemProps>(
                             alt={project.name}
                             containerClassName={styles.img_container}
                             className={styles.img_image}
+                            placeholder='blur'
+                            blurDataURL={project.blurImg}
                             fill
                             link
                         />
                     </div>
-                    <p ref={descrRef} className={`${styles.descr} ${adventPro.className}`}>
+                    <p ref={descrRef} className={styles.descr}>
                         {project.shortDescr}
                     </p>
                 </Link>
