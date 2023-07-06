@@ -1,10 +1,5 @@
 import projects from '@/data/allprojects';
-export interface IRoute {
-    path: string;
-    href: string;
-    name: string;
-    children: IRoute[];
-}
+import { IRoute } from '@/types/IRoute';
 
 const breadCrumbConf: IRoute = {
     path: '',
