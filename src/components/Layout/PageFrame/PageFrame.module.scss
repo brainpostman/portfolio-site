@@ -2,7 +2,7 @@
     z-index: -1;
     align-self: center;
     position: fixed;
-    width: 85%;
+    width: $max-width;
     height: 100%;
 }
 
@@ -11,7 +11,7 @@
     aspect-ratio: 1 / 1;
     width: 5vw;
     $border: 3px solid $light;
-    @media (max-aspect-ratio: 0.999) {
+    @media (max-aspect-ratio: 0.85) {
         aspect-ratio: 1 / 2;
     }
     &_left {
@@ -30,6 +30,15 @@
     &_down {
         bottom: $frame-margin;
         border-bottom: $border;
+    }
+    @media (max-height: 859.98px) {
+        &_up {
+            top: 3.75vh;
+        }
+
+        &_down {
+            bottom: 3.75vh;
+        }
     }
 }
 
