@@ -118,7 +118,7 @@ h6 {
         filter: blur(160px);
     }
     @media (max-width: 768.98px) {
-        filter: none;
+        filter: blur(100px);
     }
 }
 
