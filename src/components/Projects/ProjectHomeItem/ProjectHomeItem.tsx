@@ -1,6 +1,6 @@
 'use client';
 import ImageFramed from '@/components/Layout/ImageFramed/ImageFramed';
-import styles from './ProjectItem.module.scss';
+import styles from './ProjectHomeItem.module.scss';
 import Link from 'next/link';
 import { forwardRef, useRef } from 'react';
 import { IProjectItem } from '@/types/IProjectItem';

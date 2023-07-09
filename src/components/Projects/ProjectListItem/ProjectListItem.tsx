@@ -2,7 +2,7 @@
 import ImageFramed from '@/components/Layout/ImageFramed/ImageFramed';
 import styles from './ProjectListItem.module.scss';
 import { forwardRef, useEffect, useRef, useState, useImperativeHandle } from 'react';
-import { ProjectItemProps } from '../ProjectHomeItem/ProjectItem';
+import { ProjectItemProps } from '../ProjectHomeItem/ProjectHomeItem';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import Link from 'next/link';
 
