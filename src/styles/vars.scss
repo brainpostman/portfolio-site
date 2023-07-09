@@ -1,9 +1,9 @@
 //colors
 $bg: #090211;
-$magenta: #482E89;
-$pink: #683C7B;
-$lilac: #6D6BCA;
-$gold: #BE8FC6;
+$magenta: #482e89;
+$pink: #683c7b;
+$lilac: #6d6bca;
+$gold: #be8fc6;
 $lightest: #fdf4f5;
 $light: #e8a0bf;
 $dark: #ba90c6;
@@ -58,6 +58,7 @@ $rubik: var(--font-rubik);
 
 $max-width: min(1368px, 85%);
 $frame-margin: 7.5vh;
+$frame-margin-hor: 7.5vw;
 
 //mixins
 
@@ -73,4 +74,37 @@ $frame-margin: 7.5vh;
     margin: 0 auto;
     padding: calc($frame-margin + 20px) 20px;
     height: 100%;
+}
+
+@mixin adaptive-font($font-size) {
+    font-size: calc($font-size + 0.390625vw);
+}
+
+@mixin adaptive-icon($dimension) {
+    width: calc($dimension + 0.390625vw);
+    height: calc($dimension + 0.390625vw);
+}
+
+@mixin separator($dimension, $thickness) {
+    align-self: center;
+    height: $dimension;
+    width: $dimension;
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        height: $dimension;
+        width: $thickness;
+        background-color: $light;
+        left: calc(($dimension - $thickness) / 2);
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        width: $dimension;
+        height: $thickness;
+        background-color: $light;
+        top: calc(($dimension - $thickness) / 2);
+        left: 0;
+    }
 }
