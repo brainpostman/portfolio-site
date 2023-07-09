@@ -35,14 +35,14 @@
     @include play-bold;
     &_description {
         flex: 1 0 auto;
-        font-size: 24px;
+        @include adaptive-font(24px);
         text-align: justify;
         display: flex;
         flex-direction: column;
         gap: 24px;
     }
     &_stack {
-        font-size: 20px;
+        @include adaptive-font(20px);
     }
     &_divider {
         align-self: center;
@@ -51,7 +51,7 @@
         background-color: $light;
     }
     &_me {
-        font-size: 36px;
+        @include adaptive-font(36px);
     }
 }
 
@@ -65,13 +65,14 @@
         align-items: center;
         gap: 28px;
         & li {
-            font-size: 28px;
+            @include adaptive-font(24px);
             cursor: pointer;
             transition: all 0.2s ease;
             & span {
                 display: flex;
                 align-items: center;
                 gap: 12px;
+                white-space: nowrap;
             }
             & svg {
                 fill: $lightest;
@@ -79,10 +80,10 @@
             }
             &:hover {
                 transition: all 0.4s ease;
-                transform: scale(1.2);
+                transform: scale(1.1);
             }
             &:active {
-                transform: scale(1.15);
+                transform: scale(1.05);
             }
         }
     }
@@ -95,32 +96,212 @@
 }
 
 .separator {
-    align-self: center;
-    height: 15px;
-    width: 15px;
-    position: relative;
-    &::after {
-        position: absolute;
-        content: "";
-        height: 15px;
-        width: 3px;
-        background-color: $light;
-        left: 6px;
-    }
-    &::before {
-        position: absolute;
-        content: "";
-        width: 15px;
-        height: 3px;
-        background-color: $light;
-        top: 6px;
-        left: 0;
-    }
+    @include separator(15px, 3px);
 }
 
 .icons {
-    width: 24px;
-    height: 24px;
+    @include adaptive-icon(28px);
+}
+
+@media (max-width: 1368px) {
+    .navigation {
+        &_list {
+            & li {
+                @include adaptive-font(20px);
+            }
+        }
+    }
+
+    .icons {
+        @include adaptive-icon(20px);
+    }
+
+    .title {
+        &_description {
+            @include adaptive-font(20px);
+        }
+        &_stack {
+            @include adaptive-font(16px);
+        }
+        &_me {
+            @include adaptive-font(32px);
+        }
+    }
+    .img {
+        &_container {
+            height: 280px;
+            width: 280px;
+        }
+    }
+}
+
+@media (max-width: 1151.98px) {
+    .navigation {
+        &_list {
+            & li {
+                @include adaptive-font(16px);
+            }
+        }
+    }
+
+    .icons {
+        @include adaptive-icon(16px);
+    }
+
+    .title {
+        &_description {
+            @include adaptive-font(16px);
+        }
+        &_stack {
+            @include adaptive-font(12px);
+        }
+        &_me {
+            @include adaptive-font(28px);
+        }
+    }
+    .img {
+        &_container {
+            height: 260px;
+            width: 260px;
+        }
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        gap: 48px;
+    }
+    .navigation {
+        &_list {
+            & li {
+                @include adaptive-font(20px);
+            }
+        }
+    }
+
+    .icons {
+        @include adaptive-icon(20px);
+    }
+
+    .title {
+        &_description {
+            @include adaptive-font(20px);
+        }
+        &_stack {
+            @include adaptive-font(16px);
+        }
+        &_me {
+            @include adaptive-font(32px);
+        }
+    }
+    .img {
+        &_container {
+            height: 260px;
+            width: 260px;
+        }
+    }
+}
+
+@media (max-width: 729.98px) {
+    .header {
+        gap: 32px;
+    }
+
+    .title {
+        flex-direction: column;
+        &_description {
+            align-items: center;
+        }
+        gap: 20px;
+    }
+    .navigation {
+        &_list {
+            gap: 20px;
+            & li {
+                @include adaptive-font(20px);
+            }
+        }
+    }
+
+    .icons {
+        @include adaptive-icon(20px);
+    }
+
+    .title {
+        &_description {
+            @include adaptive-font(20px);
+        }
+        &_stack {
+            @include adaptive-font(16px);
+        }
+        &_me {
+            @include adaptive-font(32px);
+        }
+    }
+    .img {
+        &_container {
+            height: 260px;
+            width: 260px;
+        }
+    }
+}
+
+@media (max-width: 379.98px) {
+    .navigation {
+        &_list {
+            & li {
+                @include adaptive-font(16px);
+            }
+        }
+    }
+
+    .icons {
+        @include adaptive-icon(16px);
+    }
+
+    .title {
+        &_description {
+            @include adaptive-font(16px);
+        }
+        &_stack {
+            @include adaptive-font(12px);
+        }
+        &_me {
+            @include adaptive-font(24px);
+        }
+    }
+    .img {
+        &_container {
+            height: 240px;
+            width: 240px;
+        }
+    }
+}
+
+@media (max-height: 701.98px)  and (max-width: 729.98px) {
+    .header {
+        gap: 32px;
+    }
+
+    .navigation {
+        &_list {
+            gap: 20px;
+        }
+    }
+    .title {
+        gap: 16px;
+        &_description {
+            gap: 20px;
+        }
+    }
+    .img {
+        &_container {
+            height: 220px;
+            width: 220px;
+        }
+    }
 }
 
 .transitionLeft {
