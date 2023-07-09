@@ -42,21 +42,23 @@ const GoToTop = () => {
     };
 
     return (
-        <CSSTransition
-            in={toggle}
-            timeout={200}
-            classNames={transitionStylesNavBar}
-            mountOnEnter
-            unmountOnExit
-            nodeRef={navBarRef}>
-            <nav ref={navBarRef} className={styles.navbar}>
-                <span className={styles.navbar_btn} onClick={scrollToTop} title={'К началу'}>
-                    <TextHoverFrame>
-                        <ArrowUpIcon className={styles.icons} />
-                    </TextHoverFrame>
-                </span>
-            </nav>
-        </CSSTransition>
+        <div className={styles.container}>
+            <CSSTransition
+                in={toggle}
+                timeout={200}
+                classNames={transitionStylesNavBar}
+                mountOnEnter
+                unmountOnExit
+                nodeRef={navBarRef}>
+                <nav ref={navBarRef} className={styles.navbar}>
+                    <span className={styles.navbar_btn} onClick={scrollToTop} title={'К началу'}>
+                        <TextHoverFrame>
+                            <ArrowUpIcon className={styles.icons} />
+                        </TextHoverFrame>
+                    </span>
+                </nav>
+            </CSSTransition>
+        </div>
     );
 };
 
