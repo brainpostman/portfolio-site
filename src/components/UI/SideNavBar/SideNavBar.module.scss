@@ -31,6 +31,7 @@
 
 .icons {
     @include adaptive-icon(36px);
+    display: block;
 }
 
 .separator {
@@ -44,7 +45,7 @@
 }
 
 .transitionBar {
-    $transition: all 0.2s;
+    $transition: all 0.2s ease;
     &_enter {
         opacity: 0;
         filter: blur(20px);

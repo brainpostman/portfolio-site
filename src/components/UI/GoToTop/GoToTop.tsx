@@ -1,9 +1,9 @@
 'use client';
-import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import { CSSTransition } from 'react-transition-group-react-18';
 import styles from './GoToTop.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import ArrowUpIcon from '@p/icon-up.svg';
+import FramedButton from '../FramedButton/FramedButton';
 
 const transitionStylesNavBar = {
     enter: styles.transitionBar_enter,
@@ -20,8 +20,7 @@ const GoToTop = () => {
     useEffect(() => {
         const checkCurrentScroll = () => {
             const currentScroll = window.scrollY;
-            const fullHeight = document.documentElement.scrollHeight;
-            if (currentScroll / fullHeight > 0.075) {
+            if (currentScroll > window.screen.availHeight / 4) {
                 setToggle(true);
             } else {
                 setToggle(false);
@@ -45,16 +44,14 @@ const GoToTop = () => {
         <div className={styles.container}>
             <CSSTransition
                 in={toggle}
-                timeout={200}
+                timeout={600}
                 classNames={transitionStylesNavBar}
+                nodeRef={navBarRef}
                 mountOnEnter
-                unmountOnExit
-                nodeRef={navBarRef}>
+                unmountOnExit>
                 <nav ref={navBarRef} className={styles.navbar}>
                     <span className={styles.navbar_btn} onClick={scrollToTop} title={'К началу'}>
-                        <TextHoverFrame>
-                            <ArrowUpIcon className={styles.icons} />
-                        </TextHoverFrame>
+                        <FramedButton btnContent={<ArrowUpIcon className={styles.icons} />} />
                     </span>
                 </nav>
             </CSSTransition>

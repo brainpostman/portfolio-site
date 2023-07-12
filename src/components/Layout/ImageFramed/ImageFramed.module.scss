@@ -7,20 +7,20 @@
                 & .border {
                     transition: transform 0.4s ease;
                     &_topLeft {
-                        transform: translate3d(-14px, -14px, 0);
+                        transform: translate3d(-12.5%, -12.5%, 0);
                     }
                     &_topRight {
-                        transform: translate3d(14px, -14px, 0);
+                        transform: translate3d(12.5%, -12.5%, 0);
                     }
                     &_bottomLeft {
-                        transform: translate3d(-14px, 14px, 0);
+                        transform: translate3d(-12.5%, 12.5%, 0);
                     }
                     &_bottomRight {
-                        transform: translate3d(14px, 14px, 0);
+                        transform: translate3d(12.5%, 12.5%, 0);
                     }
                 }
                 & .img_image {
-                    transform: scale(1.05);
+                    transform: scale(1.025);
                     transition: transform 0.4s ease;
                 }
             }
@@ -28,17 +28,21 @@
                 & .border {
                     transition: transform 0.4s ease;
                     &_topLeft {
-                        transform: translate3d(-7px, -7px, 0);
+                        transform: translate3d(-3%, -3%, 0);
                     }
                     &_topRight {
-                        transform: translate3d(7px, -7px, 0);
+                        transform: translate3d(3%, -3%, 0);
                     }
                     &_bottomLeft {
-                        transform: translate3d(-7px, 7px, 0);
+                        transform: translate3d(-3%, 3%, 0);
                     }
                     &_bottomRight {
-                        transform: translate3d(7px, 7px, 0);
+                        transform: translate3d(3%, 3%, 0);
                     }
+                }
+                & .img_image {
+                    transform: scale(1.005);
+                    transition: transform 0.4s ease;
                 }
             }
         }

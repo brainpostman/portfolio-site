@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import ProjectsIcon from '@p/icon-projects.svg';
 import InfoIcon from '@p/icon-info.svg';
 import UpArrowIcon from '@p/icon-up.svg';
+import FramedButton from '../FramedButton/FramedButton';
 
 interface SideNavBarProps {
     inCSSBoolean: boolean;
@@ -46,21 +47,15 @@ const SideNavBar = ({ inCSSBoolean }: SideNavBarProps) => {
                 <nav ref={navBarRef} className={styles.navbar}>
                     <ul className={styles.navbar_list}>
                         <li onClick={scrollToTop} title={'К началу'}>
-                            <TextHoverFrame>
-                                <UpArrowIcon className={styles.icons} />
-                            </TextHoverFrame>
+                            <FramedButton btnContent={<UpArrowIcon className={styles.icons} />} />
                         </li>
                         <span className={styles.separator} />
                         <li onClick={() => scrollToBlock('projects')} title={'Проекты'}>
-                            <TextHoverFrame>
-                                <ProjectsIcon className={styles.icons} />
-                            </TextHoverFrame>
+                            <FramedButton btnContent={<ProjectsIcon className={styles.icons} />} />
                         </li>
                         <span className={styles.separator} />
                         <li onClick={() => scrollToBlock('about')} title={'О себе/Контакты'}>
-                            <TextHoverFrame>
-                                <InfoIcon className={styles.icons} />{' '}
-                            </TextHoverFrame>
+                            <FramedButton btnContent={<InfoIcon className={styles.icons} />} />
                         </li>
                     </ul>
                 </nav>
