@@ -7,10 +7,16 @@ interface ButtonProps
     btnContent?: ReactNode;
 }
 
-const FramedButton = ({ children, btnContent, ...props }: ButtonProps) => {
+const FramedButton = ({
+    children,
+    className: propsClassName,
+    btnContent,
+    disabled,
+    ...props
+}: ButtonProps) => {
     return (
-        <TextHoverFrame containsImg>
-            <button className={styles.button} {...props}>
+        <TextHoverFrame containsImg disabled={disabled}>
+            <button className={`${styles.button} ${propsClassName}`} disabled={disabled} {...props}>
                 {btnContent ?? <></>}
                 {children}
             </button>
