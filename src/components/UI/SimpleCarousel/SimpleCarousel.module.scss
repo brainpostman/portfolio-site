@@ -1,8 +1,15 @@
-.window {
-    width: 100%;
+.container {
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.window {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 .items {
@@ -10,27 +17,24 @@
     width: 100%;
     display: flex;
     align-items: center;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-        width: 0;
-        height: 0;
-    }
+    // scroll-behavior: smooth;
+    // scrollbar-width: none;
+    // -ms-overflow-style: none;
+    // &::-webkit-scrollbar {
+    //     width: 0;
+    //     height: 0;
+    // }
 }
 
 .element {
     flex-grow: 1;
     flex-shrink: 0;
-}
-
-.icon {
-    @include adaptive-icon(36px);
-    fill: $lightest;
+    transition: translate ease-in-out;
 }
 
 .btn {
+    @include adaptive-icon(36px);
+    fill: $lightest;
     flex: 0 0 auto;
     & svg {
         display: block;
@@ -43,5 +47,25 @@
     &:active {
         transition: scale 0.2s ease;
         scale: 1.1;
+    }
+    &:disabled {
+        &:hover,
+        &:active {
+            scale: 1;
+        }
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+
+@media (max-width: 1134.98px) {
+    .btn {
+        @include adaptive-icon(32px);
+    }
+}
+
+@media (max-width: 954.98px) {
+    .btn {
+        @include adaptive-icon(28px);
     }
 }

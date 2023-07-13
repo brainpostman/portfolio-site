@@ -1,3 +1,4 @@
+'use client';
 import {
     Children,
     DetailedHTMLProps,
@@ -13,66 +14,86 @@ import FramedButton from '../FramedButton/FramedButton';
 import ArrowLeft from '@p/arrow_left.svg';
 import ArrowRight from '@p/arrow_right.svg';
 
+export type AdaptiveSettings = {
+    numOfEls: number;
+    numOfMovedEls: number;
+    gap: number;
+    windowWidth: number;
+    maxScreenWidth: number;
+};
+
+type CarouselSettings = Omit<AdaptiveSettings, 'maxScreenWidth'>;
+
 interface SimpleCarouselProps
     extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    numOfEls?: number;
-    numOfMovedEls?: number;
-    gap?: number;
+    adaptiveSettings: AdaptiveSettings[];
+    speed?: number;
 }
 
 const SimpleCarousel = forwardRef<HTMLDivElement, SimpleCarouselProps>(
     (
-        {
-            children,
-            className: propsClassName = '',
-            numOfEls = 1,
-            numOfMovedEls = 1,
-            gap = 0,
-            ...props
-        },
+        { children, className: propsClassName = '', adaptiveSettings, speed = 800, ...props },
         ref
     ) => {
         const childElements = Children.toArray(children);
 
-        const [itemsWidth, setItemsWidth] = useState(0);
-        const [itemWidth, setItemWidth] = useState(0);
         const [maxScroll, setMaxScroll] = useState(0);
-        const [currentItem, setCurrentItem] = useState(0);
+        const [moveAmount, setMoveAmount] = useState(0);
+        const [translation, setTranslation] = useState(0);
+        const [{ numOfEls, gap, windowWidth }, setCarouselSettings] = useState<CarouselSettings>({
+            numOfEls: adaptiveSettings[adaptiveSettings.length - 1].numOfEls,
+            numOfMovedEls: adaptiveSettings[adaptiveSettings.length - 1].numOfMovedEls,
+            gap: adaptiveSettings[adaptiveSettings.length - 1].gap,
+            windowWidth: adaptiveSettings[adaptiveSettings.length - 1].windowWidth,
+        });
 
-        const itemsRef = useRef<HTMLDivElement>(null);
-        const itemRef = useRef<HTMLDivElement[]>([]);
+        const singleItemRef = useRef<HTMLDivElement>(null);
 
-        const gapPx = gap ? gap + 'px' : 0;
-        const halfGapPx = gap ? gap / 2 + 'px' : 0;
+        const handleWindowResize = () => {
+            if (!singleItemRef.current) return;
+            let settingIndex = adaptiveSettings.length - 1;
+            for (let i = 0; i < adaptiveSettings.length - 1; i++) {
+                if (window.innerWidth <= adaptiveSettings[i].maxScreenWidth) {
+                    settingIndex = i;
+                    break;
+                } else {
+                    continue;
+                }
+            }
+            const { maxScreenWidth, ...rest } = adaptiveSettings[settingIndex];
+            const itemWidth = singleItemRef.current.offsetWidth + rest.gap;
+            setMoveAmount(Math.ceil(itemWidth * rest.numOfMovedEls));
+            setMaxScroll(Math.ceil(itemWidth * (childElements.length - rest.numOfEls)));
+            setCarouselSettings({ ...rest });
+            setTranslation(0);
+        };
 
         useLayoutEffect(() => {
-            if (!itemsRef.current || !itemRef.current) return;
-            setItemsWidth(itemsRef.current.offsetWidth);
-            setMaxScroll(itemsRef.current.scrollWidth - itemsRef.current.clientWidth);
-            setItemWidth(itemRef.current[0].offsetWidth + gap);
+            handleWindowResize();
+            window.addEventListener('resize', handleWindowResize);
+            return () => {
+                window.removeEventListener('resize', handleWindowResize);
+            };
         }, []);
 
         const moveCarousel = (direction: 'left' | 'right') => {
-            if (!itemsRef.current) return;
             switch (direction) {
                 case 'left': {
-                    if (itemsRef.current.scrollLeft === 0) break;
-                    let moveAmount = numOfMovedEls * itemWidth;
-                    if (moveAmount > itemsRef.current.scrollLeft) {
-                        itemsRef.current.scrollLeft = 0;
+                    if (translation <= 0) break;
+                    if (moveAmount + 0.01 * moveAmount > translation) {
+                        setTranslation(0);
                         break;
                     }
-                    itemsRef.current.scrollLeft -= moveAmount;
+                    setTranslation((prev) => prev - moveAmount);
                     break;
                 }
                 case 'right': {
-                    if (itemsRef.current.scrollLeft === maxScroll) break;
-                    let moveAmount = numOfMovedEls * itemWidth;
-                    if (moveAmount > maxScroll - itemsRef.current.scrollLeft) {
-                        itemsRef.current.scrollLeft = maxScroll;
+                    if (translation >= maxScroll) break;
+                    if (moveAmount + 0.01 * moveAmount > maxScroll - translation) {
+                        setTranslation(maxScroll);
                         break;
                     }
-                    itemsRef.current.scrollLeft += moveAmount;
+                    setTranslation((prev) => prev + moveAmount);
                     break;
                 }
                 default:
@@ -82,37 +103,43 @@ const SimpleCarousel = forwardRef<HTMLDivElement, SimpleCarouselProps>(
 
         return (
             <div
-                className={`${styles.window} ${propsClassName}`}
-                style={{ gap: halfGapPx }}
+                className={`${styles.container} ${propsClassName}`}
+                style={{ gap: `${gap / 4}px`, width: windowWidth + '%' }}
                 {...props}
                 ref={ref}>
                 <FramedButton
                     className={`${styles.btn} ${styles.btn_left}`}
-                    onClick={() => moveCarousel('left')}>
+                    onClick={() => moveCarousel('left')}
+                    disabled={translation <= 0}>
                     <ArrowLeft className={styles.icon} />
                 </FramedButton>
-                <div className={styles.items} ref={itemsRef}>
-                    {childElements.map((element, index) => (
-                        <div
-                            key={index}
-                            className={styles.element}
-                            ref={(ref) => {
-                                if (itemRef.current && ref) {
-                                    itemRef.current.push(ref);
-                                }
-                            }}
-                            style={{
-                                flexBasis: `calc(${100 / numOfEls}% - ${gapPx})`,
-                                margin: `0 ${halfGapPx}`,
-                            }}>
-                            {element}
-                        </div>
-                    ))}
+                <div className={styles.window}>
+                    <div
+                        className={styles.items}
+                        style={{
+                            translate: `-${translation}px 0 0`,
+                            transitionDuration: `${speed}ms`,
+                        }}>
+                        {childElements.map((element, index) => (
+                            <div
+                                key={index}
+                                className={styles.element}
+                                style={{
+                                    flexBasis: `calc(100% / ${numOfEls} - ${gap}px)`,
+                                    marginLeft: gap / 2 + 'px',
+                                    marginRight: gap / 2 + 'px',
+                                }}
+                                ref={index === 0 ? singleItemRef : undefined}>
+                                {element}
+                            </div>
+                        ))}
+                    </div>
                 </div>
                 <FramedButton
                     className={`${styles.btn} ${styles.btn_right}`}
-                    onClick={() => moveCarousel('right')}>
-                    <ArrowRight className={styles.icon} />
+                    onClick={() => moveCarousel('right')}
+                    disabled={translation >= maxScroll}>
+                    <ArrowRight />
                 </FramedButton>
             </div>
         );
