@@ -4,10 +4,17 @@ import styles from './TextHoverFrame.module.scss';
 interface TextHoverFrameProps
     extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     containsImg?: boolean;
+    disabled?: boolean;
 }
 
-const TextHoverFrame = ({ children, containsImg = false }: TextHoverFrameProps) => {
-    return (
+const TextHoverFrame = ({
+    children,
+    containsImg = false,
+    disabled = false,
+}: TextHoverFrameProps) => {
+    return disabled ? (
+        <>{children}</>
+    ) : (
         <div className={styles.wrapper} style={containsImg ? { lineHeight: 0 } : {}}>
             {children}
 
