@@ -1,17 +1,19 @@
 .container {
     position: fixed;
-    top: 50vh;
+    top: 50%;
     right: calc($frame-margin-hor / 2);
-    translate: 50% -50% 0;
+    transform: translate3d(50%, -50%, 0);
 }
-.navbar {
-    transition:
-        translate 0.2s ease,
-        opacity 0.2s ease,
-        filter 0.2s ease;
 
+.navbar {
+    height: 100%;
+    width: 100%;
     &_btn {
         cursor: pointer;
+        transition: all 0.2s ease;
+        & svg {
+            fill: $lightest;
+        }
         &:hover {
             transition: all 0.4s ease;
             transform: scale(1.2);
@@ -19,56 +21,52 @@
         &:active {
             transform: scale(1.1);
         }
-        & svg {
-            fill: $lightest;
-        }
     }
-    & .icons {
-        width: 36px;
-        height: 36px;
-        display: block;
+}
+
+.icons {
+    @include adaptive-icon(36px);
+    display: block;
+}
+
+@media (max-width: 1023.98px) {
+    .icons {
+        @include adaptive-icon(24px);
     }
 }
 
 .transitionBar {
-    $transition:
-        translate 0.2s ease,
-        opacity 0.2s ease,
-        filter 0.2s ease;
+    $transition: all 0.2s ease;
     &_enter {
         opacity: 0;
         filter: blur(20px);
-        translate: 10vw 0 0;
-        transition: $transition;
+        transform: translateX(10vw);
     }
     &_enterActive {
         opacity: 1;
         filter: blur(0px);
-        translate: 0 0 0;
+        transform: translateX(0);
         transition: $transition;
     }
     &_enterDone {
         opacity: 1;
         filter: blur(0px);
-        translate: 0 0 0;
-        transition: $transition;
+        transform: translateX(0);
     }
     &_exit {
         opacity: 1;
         filter: blur(0px);
-        translate: 0 0 0;
-        transition: $transition;
+        transform: translateX(0);
     }
     &_exitActive {
         opacity: 0;
         filter: blur(20px);
-        translate: 10vw 0 0;
+        transform: translateX(10vw);
         transition: $transition;
     }
     &_exitDone {
         opacity: 0;
         filter: blur(20px);
-        translate: 10vw 0 0;
-        transition: $transition;
+        transform: translateX(10vw);
     }
 }

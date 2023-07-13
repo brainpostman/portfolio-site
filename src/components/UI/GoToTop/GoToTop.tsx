@@ -50,9 +50,9 @@ const GoToTop = () => {
                 mountOnEnter
                 unmountOnExit>
                 <nav ref={navBarRef} className={styles.navbar}>
-                    <span className={styles.navbar_btn} onClick={scrollToTop} title={'К началу'}>
+                    <div className={styles.navbar_btn} onClick={scrollToTop} title={'К началу'}>
                         <FramedButton btnContent={<ArrowUpIcon className={styles.icons} />} />
-                    </span>
+                    </div>
                 </nav>
             </CSSTransition>
         </div>
