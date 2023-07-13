@@ -5,7 +5,7 @@ import projects from '@/data/projects.json';
 import Link from 'next/link';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import { useEffect, useRef } from 'react';
-import SimpleCarousel from '@/components/UI/SimpleCarousel/SimpleCarousel';
+import SimpleCarousel, { AdaptiveSettings } from '@/components/UI/SimpleCarousel/SimpleCarousel';
 
 const Projects = () => {
     let shownProjects = projects.mainProjects.concat(projects.miniProjects);
@@ -13,6 +13,44 @@ const Projects = () => {
     const titleRef = useRef<HTMLHeadingElement>(null);
     const seeAllRef = useRef<HTMLHeadingElement>(null);
     const itemsRef = useRef<HTMLDivElement>(null);
+
+    const carouselSettings: AdaptiveSettings[] = [
+        {
+            numOfEls: 1,
+            numOfMovedEls: 1,
+            gap: 48,
+            windowWidth: 100,
+            maxScreenWidth: 532.98,
+        },
+        {
+            numOfEls: 1,
+            numOfMovedEls: 1,
+            gap: 48,
+            windowWidth: 90,
+            maxScreenWidth: 666.98,
+        },
+        {
+            numOfEls: 1,
+            numOfMovedEls: 1,
+            gap: 48,
+            windowWidth: 80,
+            maxScreenWidth: 954.98,
+        },
+        {
+            numOfEls: 2,
+            numOfMovedEls: 2,
+            gap: 48,
+            windowWidth: 100,
+            maxScreenWidth: 1134.98,
+        },
+        {
+            numOfEls: 3,
+            numOfMovedEls: 2,
+            gap: 24,
+            windowWidth: 100,
+            maxScreenWidth: 1368,
+        },
+    ];
 
     useEffect(() => {
         const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
@@ -44,11 +82,9 @@ const Projects = () => {
                     Проекты
                 </h1>
                 <SimpleCarousel
-                    numOfEls={3}
-                    numOfMovedEls={3}
-                    gap={24}
                     className={styles.items}
-                    ref={itemsRef}>
+                    ref={itemsRef}
+                    adaptiveSettings={carouselSettings}>
                     {shownProjects.map((project) => (
                         <ProjectHomeItem key={project.name} project={project} />
                     ))}
