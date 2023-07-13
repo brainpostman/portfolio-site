@@ -1,11 +1,12 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import styles from './BreadCrumbs.module.scss';
-import breadCrumbData, { IRoute } from '@/configs/routing.ts';
+import breadCrumbData from '@/configs/routing.ts';
 import Link from 'next/link';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group-react-18';
+import { IRoute } from '@/types/IRoute';
 
 const transitionStylesLeft = {
     enter: styles.transitionLeft_enter,
