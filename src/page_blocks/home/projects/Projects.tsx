@@ -89,18 +89,6 @@ const Projects = () => {
                         <ProjectHomeItem key={project.name} project={project} />
                     ))}
                 </SimpleCarousel>
-                {/* <div className={styles.items}>
-                    {shownProjects.map((project) => (
-                        <ProjectHomeItem
-                            key={project.name}
-                            project={project}
-                            ref={(ref: HTMLElement) => {
-                                itemRefs.current.push(ref);
-                            }}
-                            className={styles.item}
-                        />
-                    ))}
-                </div> */}
                 <h2 className={styles.seeAll} ref={seeAllRef}>
                     <Link href={'/projects'}>
                         <TextHoverFrame>Смотреть все →</TextHoverFrame>

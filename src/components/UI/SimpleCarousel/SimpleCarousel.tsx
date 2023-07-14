@@ -4,15 +4,14 @@ import {
     DetailedHTMLProps,
     HTMLAttributes,
     forwardRef,
-    useEffect,
     useLayoutEffect,
     useRef,
     useState,
 } from 'react';
 import styles from './SimpleCarousel.module.scss';
 import FramedButton from '../FramedButton/FramedButton';
-import ArrowLeft from '@p/arrow_left.svg';
-import ArrowRight from '@p/arrow_right.svg';
+import ArrowLeft from '@p/arrow-left.svg';
+import ArrowRight from '@p/arrow-right.svg';
 
 export type AdaptiveSettings = {
     numOfEls: number;

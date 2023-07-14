@@ -34,8 +34,8 @@
 
 .btn {
     @include adaptive-icon(36px);
-    fill: $lightest;
     flex: 0 0 auto;
+    fill: $lightest;
     & svg {
         display: block;
     }

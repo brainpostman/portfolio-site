@@ -48,7 +48,7 @@
     height: 100%;
     flex: 1 1 auto;
     @include play-normal;
-    margin: 50px auto 10px auto;
+    margin: 10px auto;
     text-align: center;
     @include adaptive-font(24px);
     transition: transform 0.2s ease;
@@ -80,11 +80,20 @@
         opacity 0.6s ease;
 }
 
+@media (max-width: 954.98px) and (orientation: landscape) {
+    .title {
+        @include adaptive-font(24px);
+    }
+    .seeAll {
+        @include adaptive-font(20px);
+    }
+}
+
 @media (max-width: 666.98px) and (orientation: portrait) {
     .title {
         @include adaptive-font(28px);
     }
-        .seeAll {
+    .seeAll {
         @include adaptive-font(24px);
     }
 }
