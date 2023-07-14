@@ -4,7 +4,7 @@ import {
     DetailedHTMLProps,
     HTMLAttributes,
     forwardRef,
-    useLayoutEffect,
+    useEffect,
     useRef,
     useState,
 } from 'react';
@@ -12,6 +12,7 @@ import styles from './SimpleCarousel.module.scss';
 import FramedButton from '../FramedButton/FramedButton';
 import ArrowLeft from '@p/arrow-left.svg';
 import ArrowRight from '@p/arrow-right.svg';
+import useTouchControls from '@/hooks/useTouchControls';
 
 export type AdaptiveSettings = {
     numOfEls: number;
@@ -35,7 +36,10 @@ const SimpleCarousel = forwardRef<HTMLDivElement, SimpleCarouselProps>(
         ref
     ) => {
         const childElements = Children.toArray(children);
-
+        const { onTouchStart, onTouchMove } = useTouchControls(
+            () => moveCarousel('left'),
+            () => moveCarousel('right')
+        );
         const [maxScroll, setMaxScroll] = useState(0);
         const [moveAmount, setMoveAmount] = useState(0);
         const [translation, setTranslation] = useState(0);
@@ -67,13 +71,13 @@ const SimpleCarousel = forwardRef<HTMLDivElement, SimpleCarouselProps>(
             setTranslation(0);
         };
 
-        useLayoutEffect(() => {
+        useEffect(() => {
             handleWindowResize();
             window.addEventListener('resize', handleWindowResize);
             return () => {
                 window.removeEventListener('resize', handleWindowResize);
             };
-        }, []);
+        }, [singleItemRef.current]);
 
         const moveCarousel = (direction: 'left' | 'right') => {
             switch (direction) {
@@ -118,7 +122,9 @@ const SimpleCarousel = forwardRef<HTMLDivElement, SimpleCarouselProps>(
                         style={{
                             translate: `-${translation}px 0 0`,
                             transitionDuration: `${speed}ms`,
-                        }}>
+                        }}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}>
                         {childElements.map((element, index) => (
                             <div
                                 key={index}
