@@ -13,7 +13,9 @@ const TextHoverFrame = ({
     disabled = false,
 }: TextHoverFrameProps) => {
     return disabled ? (
-        <>{children}</>
+        <div className={styles.wrapper} style={containsImg ? { lineHeight: 0 } : {}}>
+            {children}
+        </div>
     ) : (
         <div className={styles.wrapper} style={containsImg ? { lineHeight: 0 } : {}}>
             {children}

@@ -1,3 +1,4 @@
+'use client';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import styles from './FramedButton.module.scss';
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
@@ -17,7 +18,7 @@ const FramedButton = ({
     return (
         <TextHoverFrame containsImg disabled={disabled}>
             <button className={`${styles.button} ${propsClassName}`} disabled={disabled} {...props}>
-                {btnContent ?? <></>}
+                {btnContent}
                 {children}
             </button>
         </TextHoverFrame>
