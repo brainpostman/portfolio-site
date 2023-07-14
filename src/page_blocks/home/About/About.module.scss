@@ -16,7 +16,7 @@
     @include play-normal;
     text-align: center;
     margin: 10px auto;
-    font-size: 36px;
+    @include adaptive-font(32px);
     translate: -200% 0 0;
     filter: blur(20px);
     opacity: 0;
@@ -24,14 +24,11 @@
 
 .info {
     @include rubik-normal;
-    font-size: 16px;
+    @include adaptive-font(12px);
     display: flex;
     gap: 24px;
     &_item {
         flex: 1 1 33%;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
         translate: -100% 0 0;
         filter: blur(20px);
         opacity: 0;
@@ -48,13 +45,14 @@
         }
         &_title {
             @include rubik-bold;
-            font-size: 20px;
+            @include adaptive-font(14px);
             color: $dark;
         }
         &_list {
-            padding-left: 20px;
+            padding-left: max(20px, 10%);
             & li {
                 list-style: circle;
+                @include adaptive-font(10px);
             }
         }
     }
@@ -68,7 +66,7 @@
 
 .descr {
     @include rubik-normal;
-    font-size: 16px;
+    @include adaptive-font(12px);
     text-align: justify;
     text-indent: 40px;
     &_paragraph {
@@ -88,7 +86,7 @@
     @include play-normal;
     text-align: center;
     margin: 10px auto 0 auto;
-    font-size: 24px;
+    @include adaptive-font(24px);
     translate: -100% 0 0;
     filter: blur(20px);
     opacity: 0;
@@ -104,13 +102,18 @@
     translate: -100% 0 0;
     filter: blur(20px);
     opacity: 0;
+
     &_icons {
         display: flex;
         gap: 24px;
+        & > a svg {
+            @include adaptive-icon(36px);
+        }
     }
     &_mail {
         @include rubik-bold;
-        font-size: 20px;
+        @include adaptive-font(16px);
+        color: $darkest;
     }
     &_link {
         transition: scale 0.2s ease;
@@ -134,5 +137,8 @@
     translate: 0 0 0;
     filter: blur(0);
     opacity: 1;
-    transition: translate 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+    transition:
+        translate 0.6s ease,
+        filter 0.6s ease,
+        opacity 0.6s ease;
 }

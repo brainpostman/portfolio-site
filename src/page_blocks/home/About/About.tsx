@@ -1,13 +1,14 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './About.module.scss';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import HeadHunterIcon from '@p/headhunter.svg';
-import VkIcon from '@p/vk.svg';
 import DiscordIcon from '@p/discord.svg';
 import TelegramIcon from '@p/telegram.svg';
 import WhatsAppIcon from '@p/WhatsApp.svg';
 import { VscGithub } from 'react-icons/vsc';
+import ExpandingBlock from '@/components/UI/ExpandingBlock/ExpandingBlock';
+import ArrowLeft from '@p/arrow-left.svg';
 
 const About = () => {
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -16,6 +17,7 @@ const About = () => {
     const infoRefs = useRef<(HTMLDivElement | null)[]>([]);
     const paragRefs = useRef<(HTMLParagraphElement | null)[]>([]);
     const linkRef = useRef<HTMLDivElement>(null);
+    const [expandFlag, setExpandFlag] = useState(true);
     useEffect(() => {
         const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
             entries.forEach((entry) => {
@@ -52,35 +54,7 @@ const About = () => {
                 <h1 className={styles.title} ref={titleRef}>
                     О себе
                 </h1>
-                <div className={styles.info}>
-                    <div className={styles.info_item} ref={(ref) => infoRefs.current.push(ref)}>
-                        <h2 className={styles.info_item_title}>Языки программирования:</h2>
-                        <div className={styles.divider} />
-                        <ul className={styles.info_item_list}>
-                            <li>JavaScript (до ES12)</li>
-                            <li>Typescript</li>
-                            <li>Java (Collections Framework, Core, Stream API, Java 8)</li>
-                        </ul>
-                    </div>
-                    <div className={styles.info_item} ref={(ref) => infoRefs.current.push(ref)}>
-                        <h2 className={styles.info_item_title}>Фреймворки:</h2>
-                        <div className={styles.divider} />
-                        <ul className={styles.info_item_list}>
-                            <li>React JS</li>
-                            <li>Next JS</li>
-                        </ul>
-                    </div>
-                    <div className={styles.info_item} ref={(ref) => infoRefs.current.push(ref)}>
-                        <h2 className={styles.info_item_title}>Другое:</h2>
-                        <div className={styles.divider} />
-                        <ul className={styles.info_item_list}>
-                            <li>HTML, CSS</li>
-                            <li>SCSS</li>
-                            <li>PostgreSQL</li>
-                            <li>Figma</li>
-                        </ul>
-                    </div>
-                </div>
+
                 <div className={styles.descr}>
                     <p
                         className={styles.descr_paragraph}
@@ -99,6 +73,46 @@ const About = () => {
                         одиночных разработчиков в команды для совместной работы над проектами.
                     </p>
                 </div>
+                <div className={styles.info}>
+                    <ExpandingBlock
+                        blockTitle={
+                            <h2 className={styles.info_item_title}>Языки программирования:</h2>
+                        }
+                        ref={(ref) => infoRefs.current.push(ref)}
+                        className={styles.info_item}
+                        button={<ArrowLeft />}
+                        expandFlag={expandFlag}>
+                        <ul className={styles.info_item_list}>
+                            <li>JavaScript (до ES12)</li>
+                            <li>Typescript</li>
+                            <li>Java (Collections Framework, Core, Stream API, Java 8)</li>
+                        </ul>
+                    </ExpandingBlock>
+                    <ExpandingBlock
+                        blockTitle={<h2 className={styles.info_item_title}>Фреймворки:</h2>}
+                        ref={(ref) => infoRefs.current.push(ref)}
+                        className={styles.info_item}
+                        button={<ArrowLeft />}
+                        expandFlag={expandFlag}>
+                        <ul className={styles.info_item_list}>
+                            <li>React JS</li>
+                            <li>Next JS</li>
+                        </ul>
+                    </ExpandingBlock>
+                    <ExpandingBlock
+                        blockTitle={<h2 className={styles.info_item_title}>Другое:</h2>}
+                        ref={(ref) => infoRefs.current.push(ref)}
+                        className={styles.info_item}
+                        button={<ArrowLeft />}
+                        expandFlag={expandFlag}>
+                        <ul className={styles.info_item_list}>
+                            <li>HTML, CSS</li>
+                            <li>SCSS</li>
+                            <li>PostgreSQL</li>
+                            <li>Figma</li>
+                        </ul>
+                    </ExpandingBlock>
+                </div>
                 <h1 className={styles.contact} ref={contactRef}>
                     Контакты
                 </h1>
@@ -110,7 +124,7 @@ const About = () => {
                             rel='noreferrer'
                             className={styles.links_link}
                             title='Telegram'>
-                            <TextHoverFrame>
+                            <TextHoverFrame containsImg>
                                 <TelegramIcon />
                             </TextHoverFrame>
                         </a>
@@ -120,7 +134,7 @@ const About = () => {
                             rel='noreferrer'
                             className={styles.links_link}
                             title='WhatsApp'>
-                            <TextHoverFrame>
+                            <TextHoverFrame containsImg>
                                 <WhatsAppIcon />
                             </TextHoverFrame>
                         </a>
@@ -130,7 +144,7 @@ const About = () => {
                             rel='noreferrer'
                             className={styles.links_link}
                             title='hh.ru'>
-                            <TextHoverFrame>
+                            <TextHoverFrame containsImg>
                                 <HeadHunterIcon />
                             </TextHoverFrame>
                         </a>
@@ -140,7 +154,7 @@ const About = () => {
                             rel='noreferrer'
                             className={styles.links_link}
                             title='GitHub'>
-                            <TextHoverFrame>
+                            <TextHoverFrame containsImg>
                                 <VscGithub />
                             </TextHoverFrame>
                         </a>
@@ -150,7 +164,7 @@ const About = () => {
                             rel='noreferrer'
                             className={styles.links_link}
                             title='Discord'>
-                            <TextHoverFrame>
+                            <TextHoverFrame containsImg>
                                 <DiscordIcon />
                             </TextHoverFrame>
                         </a>

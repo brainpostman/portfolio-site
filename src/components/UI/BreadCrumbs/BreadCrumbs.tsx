@@ -1,7 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import styles from './BreadCrumbs.module.scss';
-import breadCrumbData from '@/configs/routing.ts';
+import breadCrumbData from '@/configs/routing';
 import Link from 'next/link';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import { useState, useEffect, useRef } from 'react';

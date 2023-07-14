@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.divider {
+    height: 3px;
+    width: 100%;
+    background-color: $light;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.2s ease;
+    &_expand {
+        grid-template-rows: 1fr;
+    }
+}
+
+.expandable {
+    min-height: 0;
+}
+
+.title {
+    display: flex;
+    gap: 6px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    line-height: 0;
+    rotate: 0 0 0;
+    transition:
+        rotate 0.2s ease,
+        scale 0.4s ease;
+    & svg {
+        @include adaptive-icon(12px);
+        display: block;
+    }
+    &_expanded {
+        rotate: -90deg 0 0;
+    }
+    &:hover {
+        transition:
+            rotate 0.2s ease,
+            scale 0.2s ease;
+        scale: 1.2;
+    }
+    &:active {
+        transition:
+            rotate 0.2s ease,
+            scale 0.2s ease;
+        scale: 1.1;
+    }
+}
