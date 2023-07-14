@@ -2,6 +2,7 @@ import PageFrame from '@/components/Layout/PageFrame/PageFrame';
 import '../styles/globals.scss';
 import { Play, Rubik } from 'next/font/google';
 import { Metadata } from 'next';
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
     title: 'Марат Саттаров, Frontend-разработчик',
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang='en' className={`${play.className} ${rubik.className}`}>
             <body>
+                <NextTopLoader color='#e8a0bf' shadow={false} />
                 <div className='container'>
                     <div className='wrapper'>{children}</div>
                     <div className='blobContainer one'>
