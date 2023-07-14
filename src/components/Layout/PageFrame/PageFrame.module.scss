@@ -11,7 +11,7 @@
     aspect-ratio: 1 / 1;
     width: 5vw;
     $border: 3px solid $light;
-    @media (max-aspect-ratio: 0.85) {
+    @media (orientation: portrait) {
         aspect-ratio: 1 / 2;
     }
     &_left {
