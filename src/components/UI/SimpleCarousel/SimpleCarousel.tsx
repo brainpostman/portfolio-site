@@ -110,12 +110,12 @@ const SimpleCarousel = forwardRef<HTMLDivElement, SimpleCarouselProps>(
                 style={{ gap: `${gap / 4}px`, width: windowWidth + '%' }}
                 {...props}
                 ref={ref}>
-                <FramedButton
+                <button
                     className={`${styles.btn} ${styles.btn_left}`}
                     onClick={() => moveCarousel('left')}
                     disabled={translation <= 0}>
                     <ArrowLeft className={styles.icon} />
-                </FramedButton>
+                </button>
                 <div className={styles.window}>
                     <div
                         className={styles.items}
@@ -140,12 +140,12 @@ const SimpleCarousel = forwardRef<HTMLDivElement, SimpleCarouselProps>(
                         ))}
                     </div>
                 </div>
-                <FramedButton
+                <button
                     className={`${styles.btn} ${styles.btn_right}`}
                     onClick={() => moveCarousel('right')}
                     disabled={translation >= maxScroll}>
                     <ArrowRight />
-                </FramedButton>
+                </button>
             </div>
         );
     }

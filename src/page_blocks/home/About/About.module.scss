@@ -106,9 +106,6 @@
     &_icons {
         display: flex;
         gap: 24px;
-        & > a svg {
-            @include adaptive-icon(36px);
-        }
     }
     &_mail {
         @include rubik-bold;
@@ -118,8 +115,7 @@
     &_link {
         transition: scale 0.2s ease;
         & svg {
-            height: 44px;
-            width: 44px;
+            @include adaptive-icon(36px);
             fill: $lightest;
         }
         &:hover {
