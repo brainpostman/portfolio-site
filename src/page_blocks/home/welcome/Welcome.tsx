@@ -7,6 +7,8 @@ import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFram
 import SideNavBar from '@/components/UI/SideNavBar/SideNavBar';
 import ProjectsIcon from '@p/icon-projects.svg';
 import InfoIcon from '@p/icon-info.svg';
+import SideMenu from '@/components/UI/SideMenu/SideMenu';
+import MobileSideMenu from '@/components/UI/MobileSideMenu/MobileSideMenu';
 
 const transitionStylesPerson = {
     enter: styles.transitionLeft_enter,
@@ -16,13 +18,22 @@ const transitionStylesPerson = {
     exitActive: styles.transitionLeft_exitActive,
     exitDone: styles.transitionLeft_exitDone,
 };
-let transitionStylesNavMain = {
+const transitionStylesNavMain = {
     enter: styles.transitionRight_enter,
     enterActive: styles.transitionRight_enterActive,
     enterDone: styles.transitionRight_enterDone,
     exit: styles.transitionRight_exit,
     exitActive: styles.transitionRight_exitActive,
     exitDone: styles.transitionRight_exitDone,
+};
+
+const transitionStylesNavBar = {
+    enter: styles.transitionBar_enter,
+    enterActive: styles.transitionBar_enterActive,
+    enterDone: styles.transitionBar_enterDone,
+    exit: styles.transitionBar_exit,
+    exitActive: styles.transitionBar_exitActive,
+    exitDone: styles.transitionBar_exitDone,
 };
 
 const Welcome = () => {
@@ -33,6 +44,7 @@ const Welcome = () => {
     const scrollTrigger = useRef<HTMLDivElement>(null);
     const observer = useRef<IntersectionObserver>();
     const titleRef = useRef<HTMLDivElement>(null);
+    const navBarRef = useRef<HTMLElement>(null);
     const navMainRef = useRef<HTMLElement>(null);
     let myPic = '';
     const timeoutRef = useRef<number>(-1);
@@ -153,7 +165,20 @@ const Welcome = () => {
                     </CSSTransition>
                 </header>
             </div>
-            <SideNavBar inCSSBoolean={navBarToggle && !scroll} />
+            <SideMenu className={styles.sideMenu}>
+                <CSSTransition
+                    in={navBarToggle && !scroll}
+                    timeout={200}
+                    classNames={transitionStylesNavBar}
+                    mountOnEnter
+                    unmountOnExit
+                    nodeRef={navBarRef}>
+                    <SideNavBar ref={navBarRef} />
+                </CSSTransition>
+            </SideMenu>
+            <MobileSideMenu className={styles.sideMenu_mobile}>
+                <SideNavBar />
+            </MobileSideMenu>
         </section>
     );
 };

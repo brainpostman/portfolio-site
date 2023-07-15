@@ -22,7 +22,7 @@
         height: 100%;
         width: 100%;
         backdrop-filter: blur(20px);
-        width: calc(120px + 0.390625vw);
+        width: calc(96px + 0.390625vw);
         @include center-content;
         border-left: 3px solid $light;
         translate: 100% 0 0;
@@ -36,7 +36,7 @@
     &_button {
         position: absolute;
         z-index: 999;
-        @include adaptive-icon(24px);
+        @include adaptive-icon(20px);
         top: 50%;
         right: calc($frame-margin-hor / 2);
         translate: 50% -50% 0;

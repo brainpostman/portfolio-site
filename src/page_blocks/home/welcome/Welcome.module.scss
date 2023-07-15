@@ -103,6 +103,12 @@
     @include adaptive-icon(28px);
 }
 
+.sideMenu {
+    &_mobile {
+        display: none;
+    }
+}
+
 @media (max-width: 1368px) {
     .navigation {
         &_list {
@@ -248,6 +254,15 @@
     }
 }
 
+@media (max-width: 699.98px) {
+    .sideMenu {
+        display: none;
+        &_mobile {
+            display: initial;
+        }
+    }
+}
+
 @media (max-width: 379.98px) {
     .navigation {
         &_list {
@@ -373,5 +388,41 @@
         opacity: 0;
         filter: blur(20px);
         transform: translateY(-10vh);
+    }
+}
+
+.transitionBar {
+    $transition: all 0.2s ease;
+    &_enter {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(10vw);
+    }
+    &_enterActive {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+        transition: $transition;
+    }
+    &_enterDone {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exit {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0);
+    }
+    &_exitActive {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(10vw);
+        transition: $transition;
+    }
+    &_exitDone {
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(10vw);
     }
 }

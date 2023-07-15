@@ -8,7 +8,7 @@ interface MobileSideMenuProps
     extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const MobileSideMenu = forwardRef<HTMLDivElement, MobileSideMenuProps>(
-    ({ children }: MobileSideMenuProps, ref) => {
+    ({ children, className: propsClassName }: MobileSideMenuProps, ref) => {
         const [active, setActive] = useState(false);
         const { onTouchStart, onTouchMove } = useTouchControls(
             () => setActive(false),
@@ -16,7 +16,7 @@ const MobileSideMenu = forwardRef<HTMLDivElement, MobileSideMenuProps>(
         );
 
         return (
-            <div className={styles.container} ref={ref}>
+            <div className={`${styles.container} ${propsClassName}`} ref={ref}>
                 <div
                     className={styles.touchBox}
                     onTouchStart={onTouchStart}
