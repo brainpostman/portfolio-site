@@ -17,11 +17,13 @@ const MobileSideMenu = forwardRef<HTMLDivElement, MobileSideMenuProps>(
 
         return (
             <div className={`${styles.container} ${propsClassName}`} ref={ref}>
-                <div
-                    className={styles.touchBox}
-                    onTouchStart={onTouchStart}
-                    onTouchMove={onTouchMove}
-                />
+                {!active && (
+                    <div
+                        className={styles.touchBox}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                    />
+                )}
                 <button
                     className={`${styles.navbar_button} ${
                         active ? styles.navbar_button_active : ''
