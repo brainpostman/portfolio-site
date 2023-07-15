@@ -95,8 +95,7 @@ $transition: translate 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
 }
 
 .icon {
-    height: 40px;
-    width: 40px;
+    @include adaptive-icon(40px);
     &:first-of-type {
         stroke: $lightest;
     }

@@ -4,16 +4,18 @@
     height: 100%;
     @include center-content;
     width: calc(96px + 0.390625vw);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px) brightness(0.8);
     border-left: 3px solid $light;
     translate: calc(100% + 3px) 0 0;
     top: 0;
     right: 0;
     transition:
         translate 0.4s ease,
-        backdrop-filter 0.4s ease;
+        backdrop-filter 0.4s ease,
+        box-shadow 0.4s ease;
     &_active {
         translate: 0 0 0;
+        box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.3);
     }
 }
 

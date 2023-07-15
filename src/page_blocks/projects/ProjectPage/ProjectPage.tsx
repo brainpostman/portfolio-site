@@ -7,6 +7,7 @@ import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFram
 import { CSSTransition } from 'react-transition-group-react-18';
 import { useEffect, useRef, useState } from 'react';
 import { IProjectItem } from '@/types/IProjectItem';
+import FramedButton from '@/components/UI/FramedButton/FramedButton';
 
 interface ProjectPageProps {
     project: IProjectItem;
@@ -136,9 +137,9 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
                         target='_blank'
                         rel='noreferrer'
                         title={'Ссылка на репозиторий'}>
-                        <TextHoverFrame>
+                        <FramedButton>
                             <VscGithub className={`${styles.icon} ${styles.icon_2}`} />
-                        </TextHoverFrame>
+                        </FramedButton>
                     </a>
                 </div>
             </CSSTransition>
