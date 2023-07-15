@@ -18,6 +18,23 @@ const About = () => {
     const paragRefs = useRef<(HTMLParagraphElement | null)[]>([]);
     const linkRef = useRef<HTMLDivElement>(null);
     const [expandFlag, setExpandFlag] = useState(true);
+
+    useEffect(() => {
+        const mql = window.matchMedia('(max-width: 666.98px)');
+        const handleMediaChange = () => {
+            if (mql.matches) {
+                setExpandFlag(false);
+            } else {
+                setExpandFlag(true);
+            }
+        };
+        handleMediaChange();
+        mql.addEventListener('change', handleMediaChange);
+        return () => {
+            mql.removeEventListener('change', handleMediaChange);
+        };
+    }, []);
+
     useEffect(() => {
         const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
             entries.forEach((entry) => {
@@ -48,6 +65,7 @@ const About = () => {
             }
         };
     }, []);
+
     return (
         <section id='about' className={styles.about}>
             <div className={styles.wrapper}>

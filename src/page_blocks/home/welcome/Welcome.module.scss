@@ -295,7 +295,7 @@
     }
 }
 
-@media (max-height: 701.98px)  and (max-width: 729.98px) {
+@media (max-height: 701.98px) and (max-width: 729.98px) {
     .header {
         gap: 32px;
     }
@@ -319,8 +319,31 @@
     }
 }
 
+@media (max-height: 599.98px) {
+    .title {
+        &_description {
+            @include adaptive-font(16px);
+        }
+        &_stack {
+            @include adaptive-font(12px);
+        }
+        &_me {
+            @include adaptive-font(24px);
+        }
+    }
+    .img {
+        &_container {
+            height: 180px;
+            width: 180px;
+        }
+    }
+}
+
 .transitionLeft {
-    $transitionL: opacity 0.5s 0.15s ease, transform 0.5s 0.15s ease, filter 0.5s 0.15s ease;
+    $transitionL:
+        opacity 0.5s 0.15s ease,
+        transform 0.5s 0.15s ease,
+        filter 0.5s 0.15s ease;
     &_enter {
         opacity: 0;
         transform: translateX(-10vw);
@@ -356,7 +379,10 @@
 }
 
 .transitionRight {
-    $transitionR: opacity 0.5s 0.3s ease, transform 0.5s 0.3s ease, filter 0.5s 0.3s ease;
+    $transitionR:
+        opacity 0.5s 0.3s ease,
+        transform 0.5s 0.3s ease,
+        filter 0.5s 0.3s ease;
     &_enter {
         opacity: 0;
         filter: blur(20px);

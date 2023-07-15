@@ -1,48 +1,46 @@
 .container {
-    z-index: 900;
+    z-index: 100;
     position: fixed;
     height: 100%;
     @include center-content;
+    width: calc(96px + 0.390625vw);
+    backdrop-filter: blur(20px);
+    border-left: 3px solid $light;
+    translate: calc(100% + 3px) 0 0;
     top: 0;
     right: 0;
+    transition:
+        translate 0.4s ease,
+        backdrop-filter 0.4s ease;
+    &_active {
+        translate: 0 0 0;
+    }
 }
 
 .touchBox {
-    z-index: 950;
+    z-index: 9900;
     position: absolute;
     height: 100%;
     width: 50%;
     top: 0;
-    right: 0;
+    right: 100%;
 }
 
 .navbar {
     &_container {
-        z-index: 975;
         height: 100%;
-        width: 100%;
-        backdrop-filter: blur(20px);
-        width: calc(96px + 0.390625vw);
         @include center-content;
-        border-left: 3px solid $light;
-        translate: 100% 0 0;
-        transition:
-            translate 0.4s ease,
-            backdrop-filter 0.4s ease;
-        &_active {
-            translate: 0 0 0;
-        }
     }
     &_panel {
         z-index: 975;
     }
     &_button {
         position: absolute;
-        z-index: 999;
-        @include adaptive-icon(20px);
+        z-index: 9999;
+        @include adaptive-icon(16px);
         top: 50%;
-        right: calc($frame-margin-hor / 2);
-        translate: 50% -50% 0;
+        right: calc($frame-margin-hor / 2 + 100%);
+        translate: 25% -50% 0;
         transition:
             translate 0.4s ease,
             scale 0.4s ease,

@@ -1,6 +1,7 @@
 .about {
     height: 100vh;
     height: 100svh;
+    @include center-content;
 }
 
 .wrapper {
@@ -27,11 +28,15 @@
     @include adaptive-font(12px);
     display: flex;
     gap: 24px;
+    flex-wrap: wrap;
     &_item {
-        flex: 1 1 33%;
+        flex: 1 1 auto;
         translate: -100% 0 0;
         filter: blur(20px);
         opacity: 0;
+        &:nth-of-type(1) {
+            flex: 1 1 40%;
+        }
         &:nth-of-type(2) {
             transition-delay: 0.3s;
         }
@@ -50,6 +55,7 @@
         }
         &_list {
             padding-left: max(20px, 10%);
+            padding-right: 8px;
             & li {
                 list-style: circle;
                 @include adaptive-font(10px);
@@ -137,4 +143,147 @@
         translate 0.6s ease,
         filter 0.6s ease,
         opacity 0.6s ease;
+}
+
+@media (max-width: 1368.98px) {
+    .wrapper {
+        padding: calc($frame-margin + 20px) calc(5vw + 10px) calc($frame-margin + 20px) calc(5vw + 10px);
+    }
+}
+
+@media (max-width: 1129.98px) {
+    .wrapper {
+        gap: 12px;
+    }
+    .links {
+        gap: 12px;
+    }
+
+    .descr {
+        & p:first-of-type {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+@media (max-width: 1024.98px) {
+    .title {
+        @include adaptive-font(32px);
+    }
+
+    .contact {
+        @include adaptive-font(24px);
+    }
+
+    .links {
+        &_link {
+            & svg {
+                @include adaptive-icon(28px);
+            }
+        }
+        &_mail {
+            @include adaptive-font(14px);
+        }
+    }
+}
+
+@media (max-width: 768.98px) {
+    .title {
+        @include adaptive-font(28px);
+    }
+
+    .contact {
+        @include adaptive-font(20px);
+    }
+
+    .info {
+        &_item {
+            &_title {
+                @include adaptive-font(12px);
+            }
+            &:nth-of-type(1) {
+                & .info_item_title {
+                    @include adaptive-font(10px);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 666.98px) {
+    .wrapper {
+        padding: calc(3.75vh + 20px) calc(5vw + 10px) calc(3.75vh + 20px) calc(5vw + 10px);
+    }
+    .info {
+        gap: 12px;
+        &_item {
+            &_title {
+                @include adaptive-font(14px);
+            }
+            &:nth-of-type(1) {
+                flex: 1 1 100%;
+                & .info_item_title {
+                    @include adaptive-font(14px);
+                }
+            }
+        }
+    }
+
+    .about {
+        min-height: 100vh;
+        height: fit-content;
+    }
+}
+
+@media (max-width: 425.98px) {
+    .title {
+        @include adaptive-font(24px);
+    }
+
+    .contact {
+        @include adaptive-font(16px);
+    }
+    .descr {
+        text-align: justify;
+        text-indent: 20px;
+    }
+}
+
+@media (max-width: 375.98px) {
+    .title {
+        @include adaptive-font(20px);
+    }
+
+    .contact {
+        @include adaptive-font(16px);
+    }
+    .descr {
+        @include adaptive-font(10px);
+    }
+
+    .links {
+        &_icons {
+            gap: 16px;
+        }
+        &_link {
+            & svg {
+                @include adaptive-icon(24px);
+            }
+        }
+        &_mail {
+            @include adaptive-font(14px);
+        }
+    }
+}
+
+@media (max-width: 321.98px) {
+    .info {
+        &_item {
+            &:nth-of-type(1) {
+                & .info_item_title {
+                    @include adaptive-font(12px);
+                }
+            }
+        }
+    }
 }

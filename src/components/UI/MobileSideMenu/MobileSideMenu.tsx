@@ -1,5 +1,5 @@
 'use client';
-import { DetailedHTMLProps, HTMLAttributes, forwardRef, useState } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, createContext, forwardRef, useState } from 'react';
 import styles from './MobileSideMenu.module.scss';
 import ArrowLeft from '@p/arrow-left.svg';
 import useTouchControls from '@/hooks/useTouchControls';
@@ -7,16 +7,23 @@ import useTouchControls from '@/hooks/useTouchControls';
 interface MobileSideMenuProps
     extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
+export const CloseMenuContext = createContext<() => void>(() => {});
+
 const MobileSideMenu = forwardRef<HTMLDivElement, MobileSideMenuProps>(
     ({ children, className: propsClassName }: MobileSideMenuProps, ref) => {
         const [active, setActive] = useState(false);
+
         const { onTouchStart, onTouchMove } = useTouchControls(
             () => setActive(false),
             () => setActive(true)
         );
 
         return (
-            <div className={`${styles.container} ${propsClassName}`} ref={ref}>
+            <div
+                className={`${styles.container} ${propsClassName} ${
+                    active ? styles.container_active : ''
+                }`}
+                ref={ref}>
                 {!active && (
                     <div
                         className={styles.touchBox}
@@ -34,12 +41,14 @@ const MobileSideMenu = forwardRef<HTMLDivElement, MobileSideMenuProps>(
                     <ArrowLeft />
                 </button>
                 <div
-                    className={`${styles.navbar_container} ${
-                        active ? styles.navbar_container_active : ''
-                    }`}
+                    className={styles.navbar_container}
                     onTouchStart={onTouchStart}
                     onTouchMove={onTouchMove}>
-                    <div className={styles.navbar_panel}>{children}</div>
+                    <div className={styles.navbar_panel}>
+                        <CloseMenuContext.Provider value={() => setActive(false)}>
+                            {children}
+                        </CloseMenuContext.Provider>
+                    </div>
                 </div>
             </div>
         );
