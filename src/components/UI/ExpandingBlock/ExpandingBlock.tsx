@@ -37,13 +37,13 @@ const ExpandingBlock = forwardRef<HTMLDivElement, ExpandingBlockProps>(
 
         return (
             <div className={`${styles.container} ${propsClassName}`} ref={ref}>
-                <div className={styles.title}>
+                <div
+                    className={styles.title}
+                    onClick={() => {
+                        setExpand((prev) => !prev);
+                    }}>
                     {blockTitle}
-                    <button
-                        className={`${styles.button} ${expand ? styles.button_expanded : ''}`}
-                        onClick={() => {
-                            setExpand((prev) => !prev);
-                        }}>
+                    <button className={`${styles.button} ${expand ? styles.button_expanded : ''}`}>
                         {button}
                     </button>
                 </div>
