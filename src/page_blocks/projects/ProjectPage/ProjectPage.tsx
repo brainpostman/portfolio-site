@@ -133,7 +133,6 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
                                         Языки программирования:
                                     </span>
                                 }>
-                                {/* <p>{project.proglangs}</p> */}
                                 <ul className={styles.otherinfo_list}>
                                     {project.proglangs.split(', ').map((item) => {
                                         return <li key={item}>{item}</li>;

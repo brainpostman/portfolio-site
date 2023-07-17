@@ -26,7 +26,9 @@ const rubik = Rubik({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang='ru' className={`${play.variable} ${rubik.className}`}>
+        <html
+            lang='en'
+            className={`${play.className} ${rubik.className} ${play.variable} ${rubik.variable}`}>
             <body>
                 <NextTopLoader color='#e8a0bf' shadow={false} />
                 <div className='container'>
