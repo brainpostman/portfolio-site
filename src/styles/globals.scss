@@ -9,7 +9,8 @@
 
 @media (prefers-reduced-motion) {
     * {
-        transition: none;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
     }
 }
 
@@ -208,7 +209,8 @@ button {
     }
 
     * {
-        transition: none;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
     }
 }
 
@@ -219,9 +221,10 @@ button {
     .gold {
         animation: none;
     }
-    
+
     * {
-        transition: none;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
     }
 }
 
