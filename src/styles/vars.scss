@@ -13,28 +13,6 @@ $darkest: #c0dbea;
 $play: var(--font-play);
 $rubik: var(--font-rubik);
 
-:root {
-    --text-shadow-play: 3px 3px 0px rgba(0, 0, 0, 0.5);
-    --text-shadow-rubik: 2px 2px 0px rgba(0, 0, 0, 0.5);
-    --icon-shadow: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
-}
-
-@media screen and (max-device-width: 915.98px) and (orientation: landscape) {
-    :root {
-        --text-shadow-play: none;
-        --text-shadow-rubik: none;
-        --icon-shadow: none;
-    }
-}
-
-@media screen and (max-device-width: 540.98px) and (orientation: portrait) {
-    :root {
-        --text-shadow-play: none;
-        --text-shadow-rubik: none;
-        --icon-shadow: none;
-    }
-}
-
 //fonts-mixins
 @mixin play-normal {
     font-family: var(--font-play), Arial, Helvetica, sans-serif;
