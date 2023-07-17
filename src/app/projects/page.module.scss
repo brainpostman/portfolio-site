@@ -33,3 +33,10 @@
         margin-bottom: 20px;
     }
 }
+
+@media (max-width: 425.98px) {
+    .wrapper {
+        padding: calc(3.75vh + 20px) calc($frame-margin-hor);
+    }
+}
+
