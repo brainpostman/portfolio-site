@@ -14,21 +14,19 @@ const play = Play({
     subsets: ['latin', 'cyrillic'],
     weight: ['400', '700'],
     variable: '--font-play',
-    display: 'swap',
+    display: 'optional',
 });
 
 const rubik = Rubik({
     subsets: ['latin', 'cyrillic'],
     weight: ['400', '700'],
     variable: '--font-rubik',
-    display: 'swap',
+    display: 'optional',
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html
-            lang='en'
-            className={`${play.className} ${rubik.className} ${play.variable} ${rubik.variable}`}>
+        <html lang='ru' className={`${play.variable} ${rubik.variable}`}>
             <body>
                 <NextTopLoader color='#e8a0bf' shadow={false} />
                 <div className='container'>
