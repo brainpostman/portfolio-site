@@ -25,7 +25,7 @@ $rubik: var(--font-rubik);
 @mixin play-bold {
     font-family: var(--font-play), Arial, Helvetica, sans-serif;
     text-transform: uppercase;
-    line-height: 150%;
+    line-height: 125%;
     font-weight: 700;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
 }
