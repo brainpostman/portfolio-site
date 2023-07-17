@@ -193,6 +193,19 @@ button {
     animation: gold 12s infinite ease;
 }
 
+@media screen and (max-device-width: 540.98px) and (orientation: portrait) {
+    .magenta, .pink, .lilac, .gold {
+        animation: none;
+    }
+}
+
+@media screen and (max-device-width: 915.98px) and (orientation: landscape) {
+    .magenta, .pink, .lilac, .gold {
+        animation: none;
+    }
+}
+
+
 @keyframes magenta {
     0% {
         transform: scale(1) translate3d(0, 0, 0);
