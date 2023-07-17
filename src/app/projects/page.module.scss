@@ -23,7 +23,7 @@
 
 @media (max-width: 951.98px) {
     .wrapper {
-        padding: calc(3.75vh + 20px) calc(5vw + 30px) calc(3.75vh + 20px) calc(5vw + 30px);
+        padding: calc($frame-margin + 20px) calc(5vw + 30px) calc($frame-margin + 20px) calc(5vw + 30px);
     }
 }
 
@@ -31,11 +31,5 @@
     .mainProjects {
         margin-top: 12px;
         margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 425.98px) {
-    .wrapper {
-        padding: calc(3.75vh + 20px) calc($frame-margin-hor);
     }
 }
