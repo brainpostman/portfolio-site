@@ -19,7 +19,7 @@ $rubik: var(--font-rubik);
     text-transform: uppercase;
     line-height: 125%;
     font-weight: 400;
-    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: var(--text-shadow-play);
 }
 
 @mixin play-bold {
@@ -27,21 +27,21 @@ $rubik: var(--font-rubik);
     text-transform: uppercase;
     line-height: 125%;
     font-weight: 700;
-    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: var(--text-shadow-play);
 }
 
 @mixin rubik-normal {
     font-family: var(--font-rubik), Arial, Helvetica, sans-serif;
     line-height: 150%;
     font-weight: 400;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: var(--text-shadow-rubik);
 }
 
 @mixin rubik-bold {
     font-family: var(--font-rubik), Arial, Helvetica, sans-serif;
     line-height: 150%;
     font-weight: 700;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: var(--text-shadow-rubik);
 }
 
 .hl_darkest {
@@ -89,7 +89,7 @@ $frame-margin-hor: 7.5vw;
 @mixin adaptive-icon($dimension) {
     width: calc($dimension + 0.390625vw);
     height: calc($dimension + 0.390625vw);
-    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
+    filter: var(--icon-shadow);
 }
 
 @mixin separator($dimension, $thickness) {

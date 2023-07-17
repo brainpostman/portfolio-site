@@ -1,5 +1,5 @@
 import PageFrame from '@/components/Layout/PageFrame/PageFrame';
-import '../styles/globals.scss';
+import '../styles/global.scss';
 import { Play, Rubik } from 'next/font/google';
 import { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
@@ -25,7 +25,6 @@ const rubik = Rubik({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-    
     return (
         <html lang='ru' className={`${play.variable} ${rubik.variable}`}>
             <body>
