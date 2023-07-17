@@ -25,6 +25,7 @@ const rubik = Rubik({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+    
     return (
         <html lang='ru' className={`${play.variable} ${rubik.variable}`}>
             <body>
