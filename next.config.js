@@ -4,7 +4,7 @@
 const nextConfig = {
     reactStrictMode: true,
     sassOptions: {
-        additionalData: `@import "./src/styles/vars.scss";`,
+        additionalData: `@import "./src/styles/vars.scss"; @import "./src/styles/global.scss";`,
     },
     webpack(config) {
         const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
