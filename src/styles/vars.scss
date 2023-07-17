@@ -15,7 +15,7 @@ $rubik: var(--font-rubik);
 
 //fonts-mixins
 @mixin play-normal {
-    font-family: $play, Arial, Helvetica, sans-serif;
+    font-family: var(--font-play), Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     line-height: 125%;
     font-weight: 400;
@@ -23,7 +23,7 @@ $rubik: var(--font-rubik);
 }
 
 @mixin play-bold {
-    font-family: $play, Arial, Helvetica, sans-serif;
+    font-family: var(--font-play), Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     line-height: 150%;
     font-weight: 700;
@@ -31,14 +31,14 @@ $rubik: var(--font-rubik);
 }
 
 @mixin rubik-normal {
-    font-family: $rubik, Arial, Helvetica, sans-serif;
+    font-family: var(--font-rubik), Arial, Helvetica, sans-serif;
     line-height: 150%;
     font-weight: 400;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
 }
 
 @mixin rubik-bold {
-    font-family: $rubik, Arial, Helvetica, sans-serif;
+    font-family: var(--font-rubik), Arial, Helvetica, sans-serif;
     line-height: 150%;
     font-weight: 700;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
