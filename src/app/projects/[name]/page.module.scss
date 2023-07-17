@@ -1,13 +1,14 @@
 .main {
-    height: 100vh;
-    height: 100svh;
+    min-height: 100vh;
+    height: auto;
+    @include center-content;
 }
 
 .wrapper {
     @include wrapper;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: calc($frame-margin + 20px) calc($frame-margin-hor);
     height: 100%;
     flex-direction: column;
     @include center-content;
+    gap: 12px;
 }

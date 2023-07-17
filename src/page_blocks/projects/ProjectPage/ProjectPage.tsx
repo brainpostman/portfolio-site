@@ -8,6 +8,8 @@ import { CSSTransition } from 'react-transition-group-react-18';
 import { useEffect, useRef, useState } from 'react';
 import { IProjectItem } from '@/types/IProjectItem';
 import FramedButton from '@/components/UI/FramedButton/FramedButton';
+import ExpandingBlock from '@/components/UI/ExpandingBlock/ExpandingBlock';
+import ArrowLeft from '@p/arrow-left.svg';
 
 interface ProjectPageProps {
     project: IProjectItem;
@@ -59,6 +61,25 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
     const otherinfoRef = useRef<HTMLDivElement>(null);
     const descrRef = useRef<HTMLParagraphElement>(null);
     const delay = 900;
+
+    const [expandFlag, setExpandFlag] = useState(true);
+
+    useEffect(() => {
+        const mql = window.matchMedia('(max-width: 666.98px)');
+        const handleMediaChange = () => {
+            if (mql.matches) {
+                setExpandFlag(false);
+            } else {
+                setExpandFlag(true);
+            }
+        };
+        handleMediaChange();
+        mql.addEventListener('change', handleMediaChange);
+        return () => {
+            mql.removeEventListener('change', handleMediaChange);
+        };
+    }, []);
+
     return (
         <section className={styles.info}>
             <CSSTransition
@@ -91,30 +112,81 @@ const ProjectPage = ({ project }: ProjectPageProps) => {
                     in={show}
                     timeout={delay + 300}
                     classNames={transitionStylesRight}
-                    nodeRef={otherinfoRef}>
-                    <div className={styles.otherinfo_wrapper} ref={otherinfoRef}>
-                        <p className={styles.otherinfo}>
-                            <span>Языки программирования:</span> {project.proglangs}
-                        </p>
-                        <p className={styles.otherinfo}>
-                            <span>Фреймворки:</span> {project.frameworks}
-                        </p>
-                        <p className={styles.otherinfo}>
-                            <span>Библиотеки:</span> {project.libraries}
-                        </p>
-                        <p className={styles.otherinfo}>
-                            <span>Другое:</span> {project.otherTech}
-                        </p>
-                    </div>
+                    nodeRef={descrRef}>
+                    <p className={styles.descr} ref={descrRef}>
+                        {project.descr}
+                    </p>
                 </CSSTransition>
                 <CSSTransition
                     in={show}
                     timeout={delay + 300}
                     classNames={transitionStylesRight}
-                    nodeRef={descrRef}>
-                    <p className={styles.descr} ref={descrRef}>
-                        {project.descr}
-                    </p>
+                    nodeRef={otherinfoRef}>
+                    <div className={styles.otherinfo} ref={otherinfoRef}>
+                        {project.proglangs !== '-' && (
+                            <ExpandingBlock
+                                className={styles.otherinfo_item}
+                                button={<ArrowLeft />}
+                                expandFlag={expandFlag}
+                                blockTitle={
+                                    <span className={styles.otherinfo_title}>
+                                        Языки программирования:
+                                    </span>
+                                }>
+                                {/* <p>{project.proglangs}</p> */}
+                                <ul className={styles.otherinfo_list}>
+                                    {project.proglangs.split(', ').map((item) => {
+                                        return <li key={item}>{item}</li>;
+                                    })}
+                                </ul>
+                            </ExpandingBlock>
+                        )}
+                        {project.frameworks !== '-' && (
+                            <ExpandingBlock
+                                className={styles.otherinfo_item}
+                                button={<ArrowLeft />}
+                                expandFlag={expandFlag}
+                                blockTitle={
+                                    <span className={styles.otherinfo_title}>Фреймворки:</span>
+                                }>
+                                <ul className={styles.otherinfo_list}>
+                                    {project.frameworks.split(', ').map((item) => {
+                                        return <li key={item}>{item}</li>;
+                                    })}
+                                </ul>
+                            </ExpandingBlock>
+                        )}
+                        {project.libraries !== '-' && (
+                            <ExpandingBlock
+                                className={styles.otherinfo_item}
+                                button={<ArrowLeft />}
+                                expandFlag={expandFlag}
+                                blockTitle={
+                                    <span className={styles.otherinfo_title}>Библиотеки:</span>
+                                }>
+                                <ul className={styles.otherinfo_list}>
+                                    {project.libraries.split(', ').map((item) => {
+                                        return <li key={item}>{item}</li>;
+                                    })}
+                                </ul>
+                            </ExpandingBlock>
+                        )}
+                        {project.otherTech !== '-' && (
+                            <ExpandingBlock
+                                className={styles.otherinfo_item}
+                                button={<ArrowLeft />}
+                                expandFlag={expandFlag}
+                                blockTitle={
+                                    <span className={styles.otherinfo_title}>Другое:</span>
+                                }>
+                                <ul className={styles.otherinfo_list}>
+                                    {project.otherTech.split(', ').map((item) => {
+                                        return <li key={item}>{item}</li>;
+                                    })}
+                                </ul>
+                            </ExpandingBlock>
+                        )}
+                    </div>
                 </CSSTransition>
             </div>
             <CSSTransition

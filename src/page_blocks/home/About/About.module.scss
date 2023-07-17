@@ -52,6 +52,7 @@
             @include rubik-bold;
             @include adaptive-font(14px);
             color: $dark;
+            padding-left: 12px;
         }
         &_list {
             padding-left: max(20px, 10%);

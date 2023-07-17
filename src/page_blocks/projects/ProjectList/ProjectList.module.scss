@@ -7,7 +7,7 @@
     @include play-normal;
     text-align: center;
     margin: 16px auto 28px auto;
-    font-size: 32px;
+    @include adaptive-font(32px);
     transform: translateX(-50%);
     filter: blur(10px);
     opacity: 0;
@@ -23,12 +23,32 @@
     transform: translateX(-50%);
     filter: blur(10px);
     opacity: 0;
-    // transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
 }
 
 .show {
     transform: translateX(0);
     filter: blur(0);
     opacity: 1;
-    transition: transform 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease,
+        opacity 0.8s ease;
+}
+
+@media (max-width: 951.98px) {
+    .title {
+        @include adaptive-font(24px);
+    }
+    .items {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .title {
+        margin: 10px auto 22px auto;
+    }
+    .items {
+        gap: 28px;
+    }
 }

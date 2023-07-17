@@ -23,7 +23,7 @@
 }
 
 .title {
-    font-size: 24px;
+    @include adaptive-font(20px);
     @include play-normal;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -39,16 +39,23 @@
     transform: translateX(-150%);
     opacity: 0;
     filter: blur(10px);
-    transition: opacity 1s ease, filter 1s ease, transform 1s ease, scale 0.2s ease;
+    transition:
+        opacity 1s ease,
+        filter 1s ease,
+        transform 1s ease,
+        scale 0.2s ease;
 }
 
 .descr {
     @include rubik-normal;
-    font-size: 20px;
+    @include adaptive-font(16px);
     transform: translateX(-150%);
     opacity: 0;
     filter: blur(10px);
-    transition: opacity 1.2s ease, filter 1.2s ease, transform 1.2s ease;
+    transition:
+        opacity 1.2s ease,
+        filter 1.2s ease,
+        transform 1.2s ease;
 }
 
 .container {
@@ -65,11 +72,56 @@
     transform: translateX(-150%);
     opacity: 0;
     filter: blur(10px);
-    transition: opacity 1.2s ease, filter 1.2s ease, transform 1.2s ease;
+    transition:
+        opacity 1.2s ease,
+        filter 1.2s ease,
+        transform 1.2s ease;
 }
 
 .show {
     transform: translateX(0);
     opacity: 1;
     filter: blur(0px);
+}
+
+@media (max-width: 1134.98px) {
+    .title {
+        @include adaptive-font(16px);
+    }
+
+    .descr {
+        @include adaptive-font(12px);
+    }
+    .img {
+        &_container {
+            height: 150px;
+        }
+    }
+}
+
+@media (max-width: 951.98px) {
+    .container {
+        gap: 20px;
+    }
+    .info {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .img {
+        &_container {
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 499.98px) {
+    .title {
+        @include adaptive-font(14px);
+    }
 }

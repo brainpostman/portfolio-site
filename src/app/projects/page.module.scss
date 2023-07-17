@@ -11,13 +11,6 @@
     flex-direction: column;
 }
 
-.title {
-    @include play-normal;
-    text-align: center;
-    margin: 16px auto 20px auto;
-    font-size: 24px;
-}
-
 .items {
     display: flex;
     flex-direction: column;
@@ -26,4 +19,17 @@
 
 .mainProjects {
     margin-bottom: 24px;
+}
+
+@media (max-width: 951.98px) {
+    .wrapper {
+        padding: calc($frame-margin + 20px) calc(5vw + 30px) calc($frame-margin + 20px) calc(5vw + 30px);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mainProjects {
+        margin-top: 12px;
+        margin-bottom: 20px;
+    }
 }

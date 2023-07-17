@@ -5,10 +5,13 @@ import { forwardRef, useEffect, useRef, useState, useImperativeHandle } from 're
 import { ProjectItemProps } from '../ProjectHomeItem/ProjectHomeItem';
 import TextHoverFrame from '@/components/Layout/TextHoverFrame.tsx/TextHoverFrame';
 import Link from 'next/link';
+import ExpandingBlock from '@/components/UI/ExpandingBlock/ExpandingBlock';
+import ArrowLeft from '@p/arrow-left.svg';
 
 const ProjectListItem = forwardRef<HTMLElement, ProjectItemProps>(
     ({ project, className: propsClassName }, ref) => {
         const [toggle, setToggle] = useState(false);
+        const [expandFlag, setExpandFlag] = useState(true);
         const titleRef = useRef<HTMLHeadingElement>(null);
         const descrRef = useRef<HTMLParagraphElement>(null);
         const parentRef = useRef<HTMLElement>(null);
@@ -33,6 +36,23 @@ const ProjectListItem = forwardRef<HTMLElement, ProjectItemProps>(
                 mutationRef.current?.disconnect();
             };
         }, []);
+
+        useEffect(() => {
+            const mql = window.matchMedia('(max-width: 767.98px)');
+            const handleMediaChange = () => {
+                if (mql.matches) {
+                    setExpandFlag(false);
+                } else {
+                    setExpandFlag(true);
+                }
+            };
+            handleMediaChange();
+            mql.addEventListener('change', handleMediaChange);
+            return () => {
+                mql.removeEventListener('change', handleMediaChange);
+            };
+        }, []);
+
         return (
             <article ref={parentRef} className={`${styles.wrapper} ${propsClassName}`}>
                 <div className={styles.container}>
@@ -50,21 +70,26 @@ const ProjectListItem = forwardRef<HTMLElement, ProjectItemProps>(
                             />
                         </div>
                     </Link>
-                    <div className={styles.info}>
-                        <h3
-                            ref={titleRef}
-                            className={`${styles.title} ${toggle ? styles.show : ''}`}>
-                            <TextHoverFrame className={styles.title_hover}>
-                                <Link href={`/projects/${project.href}`}>{project.name}</Link>
-                            </TextHoverFrame>
-                        </h3>
+                    <ExpandingBlock
+                        className={styles.info}
+                        button={<ArrowLeft />}
+                        expandFlag={expandFlag}
+                        blockTitle={
+                            <h3
+                                ref={titleRef}
+                                className={`${styles.title} ${toggle ? styles.show : ''}`}>
+                                <TextHoverFrame className={styles.title_hover}>
+                                    <Link href={`/projects/${project.href}`}>{project.name}</Link>
+                                </TextHoverFrame>
+                            </h3>
+                        }>
                         <span className={`${styles.divider} ${toggle ? styles.show : ''}`} />
                         <p
                             ref={descrRef}
                             className={`${styles.descr} ${toggle ? styles.show : ''}`}>
                             {project.shortDescr}
                         </p>
-                    </div>
+                    </ExpandingBlock>
                 </div>
             </article>
         );

@@ -1,12 +1,17 @@
 .info {
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex: 1 0 auto;
+    gap: 24px;
 }
 
-$transition: translate 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
+$transition:
+    translate 0.8s ease,
+    filter 0.8s ease,
+    opacity 0.8s ease;
 
 .img {
     &_container {
@@ -15,6 +20,7 @@ $transition: translate 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
         height: 225px;
         float: left;
         margin-right: 20px;
+        margin-bottom: 10px;
         opacity: 0;
         filter: blur(20px);
         translate: -100% 0 0;
@@ -26,16 +32,10 @@ $transition: translate 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
     }
 }
 
-.mainInfo {
-    display: flex;
-    gap: 24px;
-}
-
 .title {
     @include play-normal;
-    font-size: 24px;
+    @include adaptive-font(20px);
     text-align: center;
-    margin-bottom: 20px;
     opacity: 0;
     filter: blur(20px);
     translate: 0 -200% 0;
@@ -43,36 +43,56 @@ $transition: translate 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
 
 .descr {
     @include rubik-normal;
-    font-size: 16px;
+    @include adaptive-font(12px);
     text-align: justify;
-    margin-bottom: 24px;
+    min-height: 225px;
     opacity: 0;
     filter: blur(20px);
     translate: 50% 0 0;
     transition-delay: 0.6s;
+    text-indent: 24px;
+    margin-bottom: 12px;
 }
 
 .otherinfo {
-    &_wrapper {
-        display: flex;
-        flex-direction: column;
-        opacity: 0;
-        filter: blur(20px);
-        translate: 50% 0 0;
-        transition-delay: 0.3s;
-    }
-    @include rubik-normal;
-    font-size: 16px;
-    span {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    opacity: 0;
+    filter: blur(20px);
+    translate: 50% 0 0;
+    transition-delay: 0.3s;
+    &_title {
         @include rubik-bold;
+        @include adaptive-font(12px);
         color: $darkest;
+        padding-left: 12px;
     }
-    &:nth-of-type(2n) {
-        & span {
-            color: $dark;
+    &_item {
+        flex: 0 1 calc(50% - 12px);
+        &:nth-of-type(2) {
+            .otherinfo_title {
+                color: $dark;
+            }
+        }
+        &:nth-of-type(3) {
+            .otherinfo_title {
+                color: $dark;
+            }
         }
     }
-    margin-bottom: 20px;
+    &_list {
+        padding-right: 8px;
+        @include adaptive-font(10px);
+        @include rubik-normal;
+        display: flex;
+        flex-wrap: wrap;
+        & li {
+            flex: 0 1 calc(33% - max(20px, 10%));
+            list-style: circle;
+            margin-left: max(20px, 10%);
+        }
+    }
 }
 
 .links {
@@ -90,7 +110,7 @@ $transition: translate 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
     }
     opacity: 0;
     filter: blur(20px);
-    translate: 0 100% 0;
+    translate: 0 75% 0;
     transition-delay: 0.8s;
 }
 
@@ -101,6 +121,103 @@ $transition: translate 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
     }
     &_2 {
         fill: $lightest;
+    }
+}
+
+@media (max-width: 1368.98px) {
+    .descr {
+        @include adaptive-font(10px);
+    }
+}
+
+@media (max-width: 1024.98px) {
+    .descr {
+        @include adaptive-font(9px);
+    }
+}
+
+@media (max-width: 899.98px) {
+    .info {
+        &_main {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+    .descr {
+        margin-bottom: 0;
+        min-height: 0;
+    }
+    .img {
+        &_container {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: auto;
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 768.98px) {
+    .otherinfo {
+        &_item {
+            &:first-of-type {
+                .otherinfo_title {
+                    @include adaptive-font(10px);
+                }
+            }
+        }
+        &_list {
+            & li {
+                flex: 0 1 calc(50% - max(20px, 10%));
+                @include adaptive-font(9px);
+            }
+        }
+    }
+}
+
+@media (max-width: 615.98px) {
+    .otherinfo {
+        &_title {
+            @include adaptive-font(10px);
+        }
+        &_item {
+            &:first-of-type {
+                .otherinfo_title {
+                    @include adaptive-font(8px);
+                }
+            }
+        }
+        &_list {
+            & li {
+                flex: 0 1 calc(50% - max(20px, 10%));
+                @include adaptive-font(9px);
+            }
+        }
+    }
+}
+
+@media (max-width: 523.98px) {
+    .otherinfo {
+        &_title {
+            @include adaptive-font(12px);
+        }
+        &_item {
+            flex: 1 0 100%;
+            &:first-of-type {
+                .otherinfo_title {
+                    @include adaptive-font(12px);
+                }
+            }
+        }
+        &_list {
+            & li {
+                flex: 0 1 calc(50% - max(20px, 10%));
+                @include adaptive-font(9px);
+            }
+        }
     }
 }
 
