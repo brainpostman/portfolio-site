@@ -7,6 +7,12 @@
     scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion) {
+    * {
+        transition: none;
+    }
+}
+
 *,
 *:before,
 *:after {
@@ -194,17 +200,30 @@ button {
 }
 
 @media screen and (max-device-width: 540.98px) and (orientation: portrait) {
-    .magenta, .pink, .lilac, .gold {
+    .magenta,
+    .pink,
+    .lilac,
+    .gold {
         animation: none;
+    }
+
+    * {
+        transition: none;
     }
 }
 
 @media screen and (max-device-width: 915.98px) and (orientation: landscape) {
-    .magenta, .pink, .lilac, .gold {
+    .magenta,
+    .pink,
+    .lilac,
+    .gold {
         animation: none;
     }
+    
+    * {
+        transition: none;
+    }
 }
-
 
 @keyframes magenta {
     0% {
