@@ -21,7 +21,7 @@ const rubik = Rubik({
     subsets: ['latin', 'cyrillic'],
     weight: ['400', '700'],
     variable: '--font-rubik',
-    display: 'swap',
+    display: 'optional',
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
