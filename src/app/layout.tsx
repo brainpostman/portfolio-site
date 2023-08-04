@@ -14,14 +14,14 @@ const play = Play({
     subsets: ['latin', 'cyrillic'],
     weight: ['400', '700'],
     variable: '--font-play',
-    display: 'optional',
+    display: 'swap',
 });
 
 const rubik = Rubik({
     subsets: ['latin', 'cyrillic'],
     weight: ['400', '700'],
     variable: '--font-rubik',
-    display: 'optional',
+    display: 'swap',
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
